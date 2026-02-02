@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" description="lowyelling - portfolio and blog">
+  <section class="hero">
+    <h1>Hi, I'm lowyelling</h1>
+    <p class="tagline">
+      Developer, writer, artist. Building things and writing about them.
+    </p>
+    <p class="text-muted">
+      Welcome to my corner of the internet. I write on
+      <a href="https://lowyelling.substack.com" target="_blank" rel="noopener">Substack</a>
+      as Furniture Coins for longer essays. Here you'll find my portfolio, blog, and whatever else I'm working on.
+    </p>
+  </section>
+
+  <section class="mt-lg">
+    <h2>Recent</h2>
+    <p class="text-muted">Coming soon...</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-lg);
+  }
+</style>

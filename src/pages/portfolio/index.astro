@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Portfolio" description="Portfolio of work">
+  <h1>Portfolio</h1>
+  <p class="text-muted">A collection of things I've made.</p>
+
+  <nav class="portfolio-nav mt-lg">
+    <a href="/portfolio/dev" class="portfolio-card">
+      <h2>Dev</h2>
+      <p>Software projects and code</p>
+    </a>
+    <a href="/portfolio/writing" class="portfolio-card">
+      <h2>Writing</h2>
+      <p>Selected works and essays</p>
+    </a>
+    <a href="/portfolio/art" class="portfolio-card">
+      <h2>Art</h2>
+      <p>Visual work and experiments</p>
+    </a>
+  </nav>
+</BaseLayout>
+
+<style>
+  .portfolio-nav {
+    display: grid;
+    gap: var(--spacing-md);
+  }
+
+  .portfolio-card {
+    display: block;
+    padding: var(--spacing-lg);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .portfolio-card:hover {
+    border-color: var(--color-accent);
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+
+  .portfolio-card h2 {
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .portfolio-card p {
+    color: var(--color-text-muted);
+    margin: 0;
+    font-size: 0.875rem;
+  }
+</style>

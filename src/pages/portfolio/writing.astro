@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Writing Portfolio" description="Selected writing">
+  <p><a href="/portfolio">&larr; Portfolio</a></p>
+
+  <h1>Writing</h1>
+  <p class="text-muted">Selected works and essays.</p>
+
+  <section class="mt-lg">
+    <h2>Furniture Coins (Substack)</h2>
+    <p class="text-muted">Longer essays on [topics].</p>
+    <ul>
+      <li><a href="https://lowyelling.substack.com" target="_blank" rel="noopener">[Essay Title 1]</a></li>
+      <li><a href="https://lowyelling.substack.com" target="_blank" rel="noopener">[Essay Title 2]</a></li>
+      <li><a href="https://lowyelling.substack.com" target="_blank" rel="noopener">[Essay Title 3]</a></li>
+    </ul>
+  </section>
+
+  <section class="mt-lg">
+    <h2>Other Writing</h2>
+    <p class="text-muted">No items yet.</p>
+  </section>
+</BaseLayout>
+
+<style>
+  ul {
+    padding-left: var(--spacing-lg);
+  }
+
+  li {
+    margin-bottom: var(--spacing-sm);
+  }
+</style>

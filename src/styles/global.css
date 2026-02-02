@@ -1,0 +1,96 @@
+/* Color tokens - pastel blue palette */
+:root {
+  --color-bg: #f8fbff;
+  --color-bg-subtle: #eef5fc;
+  --color-text: #2d3748;
+  --color-text-muted: #64748b;
+  --color-accent: #7eb8da;
+  --color-accent-hover: #5ba3ce;
+  --color-border: #d1e3f0;
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Consolas, monospace;
+
+  --max-width: 720px;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1a202c;
+  --color-bg-subtle: #2d3748;
+  --color-text: #e2e8f0;
+  --color-text-muted: #a0aec0;
+  --color-accent: #7eb8da;
+  --color-accent-hover: #9ecae9;
+  --color-border: #4a5568;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Layout */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+/* Utilities */
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About" description="About lowyelling">
+  <h1>About</h1>
+
+  <section class="mt-lg">
+    <p>
+      Hello! I'm the person behind lowyelling. The name is an Englishified pun on my real name.
+    </p>
+    <p>
+      I'm currently learning to become a new type of developer at Fractal Tech.
+      Before this, I was [placeholder for your background].
+    </p>
+    <p>
+      I make things across different mediums: code, writing, and art.
+      I believe in [placeholder for your values/philosophy].
+    </p>
+  </section>
+
+  <section class="mt-lg">
+    <h2>Elsewhere</h2>
+    <ul>
+      <li><a href="https://github.com/lowyelling" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://twitter.com/lowyelling" target="_blank" rel="noopener">Twitter</a></li>
+      <li><a href="https://lowyelling.substack.com" target="_blank" rel="noopener">Substack</a> (Furniture Coins)</li>
+      <li><a href="https://instagram.com/lowyelling" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://discord.com" target="_blank" rel="noopener">Discord</a>: lowyelling</li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: var(--spacing-sm);
+  }
+</style>

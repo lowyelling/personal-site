@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Now" description="What I'm doing now">
+  <h1>Now</h1>
+  <p class="text-muted">
+    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>.
+    Updated: [date]
+  </p>
+
+  <section class="mt-lg">
+    <h2>Working on</h2>
+    <ul>
+      <li>Learning software development at Fractal Tech</li>
+      <li>Building this website</li>
+      <li>[Placeholder]</li>
+    </ul>
+  </section>
+
+  <section class="mt-lg">
+    <h2>Reading</h2>
+    <ul>
+      <li>[Placeholder book]</li>
+    </ul>
+  </section>
+
+  <section class="mt-lg">
+    <h2>Thinking about</h2>
+    <ul>
+      <li>[Placeholder thought]</li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  ul {
+    padding-left: var(--spacing-lg);
+  }
+
+  li {
+    margin-bottom: var(--spacing-sm);
+  }
+</style>
