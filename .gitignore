@@ -21,3 +21,6 @@ Thumbs.db
 
 # Astro
 .astro/
+
+# Vercel
+.vercel/
