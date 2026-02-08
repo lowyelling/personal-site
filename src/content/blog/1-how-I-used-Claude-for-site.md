@@ -1,11 +1,8 @@
 ---                                                                                                                              
-  title: "How I used Claude to build this site"                                                                                                         
+  title: "How I used Claude to build this site in half a day"                                                                                                         
   date: 2026-02-02                                                                                                                 
   description: "My first time using Claude Code to build and deploy my first personal website"                                                                                  
 ---                                                                                                                      
-
-# How I used Claude Code to build this blog in half a day
-Date: 2.2.26 
 
 I've never touched an Anthropic product until today. Not for any anti-Claude reason; I'm completely tool agnostic. While I am a top 1% user of chatGPT according to my 2025 chatGPT wrapped, that award represents laziness and familiarity more than loyalty. Sticking with one tool for when infinite context histories are solved is pretty appealing though, if I had to give a technical reason. 
 
@@ -17,7 +14,7 @@ On day one of Fractal Tech bootcamp, we were asked to download and install Claud
 
 11:30am - I fed Claude Code the background information I went over with chatGPT e.g. domain names, constraints regarding privacy, minimalist design decisions for the page layouts etc. I also asked Claude to interview me for any remaining gaps. 
 
-12:00pm - Interview and back-and-forth questions finished. I went with a static site built with Astro, Github Pages for hosting, and table the domain work. 
+12:00pm - Interview and back-and-forth questions finished. I went with a static site built with Astro, Github Pages for hosting, and decided to table the domain work. 
 
 After lunch, Claude one-shotted the v0 skeleton. Before I committed and pushed to Github, I made sure to scrub my files of identifying information. 
 
