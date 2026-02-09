@@ -14,7 +14,7 @@ Mon-Fri are structured like this:
 
 Saturdays are system design reviews and demo days, which I'll elaborate on in the Daily Log section. We are also assigned a lot of reading throughout the week--both technical and general--on [Mimir](readmimir.com). 
 
-Very pleased that presentation and communication skills, and writing in particular, are such key parts of program. My daily posting to Twitter/X and Substack Notes helped me process each day and write this weekly blog post. Why write so much? Why write at all, actually? Well, software engineering is similar to writing; I always thought they shared a certain charming logic. But in the near future, there may literally be no distinction. Even world-class AI engineers like Karpathy are speaking mostly English now to write code. But even removing this new fangled reason, it's good to have a public record. Build in public, they always say. Writing helps your future self a lot, whether in formal interviews or in general conversations about your projects. You know how some people sound super eloquent? Chances are they wrote about whatever it is they're talking about, likely in a book. Or at the very least an article.   
+Very pleased that presentation and communication skills, and writing in particular, are such key parts of program. My daily posting to Twitter/X and Substack Notes helped me process each day and write this weekly blog post. Why write so much? Why write at all, actually? Well, software engineering is similar to writing; I always thought they shared a certain charming logic. But in the near future, there may literally be no distinction. Even world-class AI engineers like Karpathy are speaking mostly English now to write code. But even removing this newfangled reason, it's good to have a public record. Build in public, they always say. Writing helps your future self a lot, whether in formal interviews or in general conversations about your projects. You know how some people sound super eloquent? Chances are they wrote about whatever it is they're talking about, likely in a book. Or at the very least an article.   
 
 But for me, two words we learned this week are my reasons for writing. Autotelic and autodidactic. Self-ending (its own end) and self-learning (or self-teaching). I started writing a [little over a year](https://furniturecoins.substack.com/p/1-year-of-writing) ago, which [transformed my life](https://furniturecoins.substack.com/p/33-and-nyc). Writing is its own reward, its own teacher. 
 
@@ -86,7 +86,7 @@ A few other key takeaways below before the daily logs begin.
 ---
 ## Daily Logs
 
-I let Claude Code read my git commit history and write the daily summary logs for Tic Tac Toe below + me as editor. It's probably not that impressive in the grand scheme of things, but man, to me it's another demonstration of why CCC (Claude Code is Cracked). 
+My daily posts on Substack and Twitter were fully written by me. But for the PR logs below, I let Claude Code read my git commit history and write the summaries, with me as the editor. It's probably not that impressive in the grand scheme of things, but man, to me it's another demonstration of why CCC (Claude Code is Cracked). 
 
 Also, the system design diagrams were made by our instructors. Once I make my own specific ones aka shows the suboptimal ways I implemented the game, I'll replace them/add them alongside the official ones. 
 
@@ -94,7 +94,7 @@ Also, the system design diagrams were made by our instructors. Once I make my ow
 
 ### Day 1 - Using Claude Code to create your personal site
 
-*Logs:
+*Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-209301854?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
 [Twitter](https://x.com/lowyelling/status/2018695207164719306?s=20)*
@@ -104,7 +104,7 @@ This is fully explained in last week's [first blog post](https://personal-site-p
 <br>
 
 ### Day 2 - Basic (Client-side only)
-*Logs:
+*Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-209607512?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
 [Twitter](https://x.com/lowyelling/status/2018865677545660831?s=20)*
@@ -132,7 +132,7 @@ System Design: https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/c
 
 ### Day 3 - Styling and Server-Side
 
-*Logs:
+*Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-210089835?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
 [Twitter](https://x.com/lowyelling/status/2019213905663295908?s=20)*
@@ -158,7 +158,7 @@ https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks
 
 ### Day 4 - Multi-game with Test Driven Development (TDD)
 
-*Logs:
+*Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-210603466?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
 [Twitter](https://x.com/lowyelling/status/2019597358644826548?s=20)*
@@ -184,7 +184,7 @@ https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks
 
 ### Day 5 - Real-time and Live Deployment
 
-*Logs:
+*Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-211028212?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
 [Twitter](https://x.com/lowyelling/status/2019911457706500428?s=20)*
@@ -210,7 +210,7 @@ https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks
 
 ### Day 6 - Demo Day
 
-*Logs:
+*Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-211460009)
 |
 [Twitter](https://x.com/lowyelling/status/2020273692744241442?s=20)*
