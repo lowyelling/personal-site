@@ -48,19 +48,19 @@
 ### Day 14 -
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-215390508?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2023466020489322624?s=20)*
 
 
 <br>
 
-### Day 15 -
+### Day 15 - Claude Game Day
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-215751340?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2023766297188717004?s=20)*
 
 
 <br>
@@ -68,29 +68,39 @@
 ### Day 16 -
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-216208846?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2024121782710546837?s=20)*
 
 
 <br>
 
-### Day 17 -
+### Day 17/18 -
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-217018396?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2024675343102099499?s=20)*
 
 
 <br>
 
-### Day 18 - Demo Day
+### Day 19 -
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-217498706?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2025034402690929143?s=20)*
+
+
+<br>
+
+### Day 20 - Demo Day
+
+*Daily Posts:
+[Substack](https://substack.com/@lowyelling/note/c-217836032?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
+|
+[Twitter](https://x.com/lowyelling/status/2025329054337909135?s=20)*
 
 
 ---
@@ -99,7 +109,10 @@
 Braindump for what I can improve, other ideas etc
 
 ### Near Term
--
+- Add start menu with DFJK keys
+- Remove or update Game Config panel
+- Polish up UI
 
 ### Long Term
--
+- Add more music
+- Make system diagram for flow
