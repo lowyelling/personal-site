@@ -1,40 +1,31 @@
 ---
   title: "Week Three - Music Bopper Group Project"
   date: 2026-02-24
-  description: "Creating Guitar Hero/DDR/OSU from scratch in the dream team"
+  description: "Creating Guitar Hero/DDR/OSU from scratch with the dream team"
 ---
-
-Live link! 
-
-One day I was too tired to even make my daily post on Substack/Twitter. Takeaway: "I never want to build a game again! I had the dream team and it was still a terribly hard experience." Genuine respect for game developers — they are REAL software engineers.
-
-Josh Citarella: https://substack.com/@lowyelling/note/c-216705652?r=1mz4jf&utm_source=notes-share-action&utm_medium=web
-
-Michael Dean essay visualizer: https://substack.com/@lowyelling/note/c-217188332?r=1mz4jf&utm_source=notes-share-action&utm_medium=web
 
 ---
 ## Reflection
-
- The big insight: games are fundamentally different from web apps — continuous (game loop ticking every frame) vs. event-driven (respond to user actions). 
-
- Tests for games are quite different from tests 
-
-
-Other demos included Frogger, a corporate strategy game, an AR item collection game, and a Schelling Point game with mobile responses. 
-
-<br>
 
 
 <br>
 
 ### Learning about Learning
--
+- Week 3 = 39 conversations. ~$80 in Claude API costs
+- Continued measuring gaps using the architecture/mechanical/syntax framework  
+- Claude told me I am much more confident prompting it compared to week 1! I no longer type things like "damn I messed it up again" to Claude, I just ask it questions haha
 
 ### Key Concepts
--
+4 principles of steering Claude aka not-gambling-not-vibecoding: 
+- context is your only lever 
+- compaction turns noise into signal
+- subagents keep your context clean
+- human attention belongs at the top of the pipeline
 
 ### Random
--
+- It might be time to start full-time hot mic'ing/speaking to Claude, sigh (I quite like typing)
+- Met my first publisher [Josh Citarella](https://substack.com/@lowyelling/note/c-216705652?r=1mz4jf&utm_source=notes-share-action&utm_medium=web). Topic was cybernetics - very fitting  
+- Michael Dean made a [braided essay visualizer](https://substack.com/@lowyelling/note/c-217188332?r=1mz4jf&utm_source=notes-share-action&utm_medium=web) featuring my essay!
 
 ---
 ## Tech Stack
@@ -173,6 +164,8 @@ Since we only had 1 day left until demo day, we leaned on Claude code. Claude pe
 [Twitter](https://x.com/lowyelling/status/2025329054337909135?s=20)*
 
 Polish and demo day. With Claude, I built a lil-gui runtime control panel, a centralized area for previously hardcoded game constants. Conor took the lead on the slide deck and Josh worked on prepping the repo for deployment on Render. 
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQqiFge7rJTOJ_bZHJ0ICUhXKSQ0teRGGSG5MFYbrAQ8bMI9k4sQUrbm8SHcsJHtay3ctw6KlmjxLnx/pubembed?start=false&loop=false&delayms=3000"  frameborder="0" width="600" height="338" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 - PR #37 `lily-panel` (Lily) — Centralized GameConfig, wired managers to read from config, added lil-gui control panel with backtick toggle, presets (Easy/Hard/Chaos), reset-to-defaults
 - PR #40 `feat/adjust-bg` (Josh) — Fixed build
