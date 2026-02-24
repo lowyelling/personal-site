@@ -1,15 +1,28 @@
 ---                                                                                                                              
-  title: "Week Two - Two AI mirrors looking at each other"                                                                         
+  title: "Week Two - Making chatGPT: Two mirrors looking at each other"                                                                         
   date: 2026-02-24                                                                                                                 
   description: "Making a clone of chatGPT to talk with Claude"                                                                                  
 ---                                                                                                                      
-INTRO
+
+I am writing about Fractal Tech week 2 sitting in the middle of week 4. Normally this would be subjected to serious memory degradation, but 1. I posted daily to Substack and Twittier/X and 2. in week 2 we built our own claudebooks as a form of meta-learning, so I have plenty of externalized memories to refer back on. Not to toot my own horn too much, but I'm really patting myself on the back for keeping up with those two crucial processes. Especially using the claudebook, since it takes an extra hour each day to extract my daily conversations with Claude and review them. 
+
+This was one of the best weeks of my life, not only because I entered the mythic flowstate popularized by Mihaly Csikszentmihalyi while Clauding, a state I've only experienced before in painting and writing, but because I finally let go of being behind. Or rather, I let go of the concept of being behind. In week 1, I wrote about being bottom of the class and how I was coping with that (pretty well, but still coping), and now there's no impulse to compare at all. It's partially because I like everyone in my cohort, partially because comparison games are pointless and I'm naturally predisposed towards cooperation instead of competition, but it's mostly because the meta has changed. What does it even mean to be behind in the age of AI? I'll elaborate in the week 3 blogpost which I'll write and publish right after this one. There's too much good learning that happened in week 2 to belabor this particular point now. 
+
 
 ---
 ## Reflection
 
 <br>
 
+Making a clone of chatGPT is probably one of the best projects to do, not only to learn a bunch of fullstack technicalities like interfaces and authentication, but to truly develop an intuition for AI. It's crazy that an AI chatbot was frontier technology just 3-4 years ago, and now we consider it 101 worthy. Since we're already into unstructured territory, I can say that week 2 is my favorite structured project we completed at Fractal Tech. 
+
+This week demanded more manual coding, which was a real overwhelming grind for me again. While Claude generated no code that I copy-pasted except for the demo, I got better at using Claude to generate step-by-step implementation plans for me by feeding it documentation and having another instance of Claude double-check the plan. I still had the documentation open in a side window to double-check, and got through my work with minimal hair-pulling. Prior to AI, doing even half the work we would do in a day probably took a week. Still, just like in week 1 with Tic Tac Toe, I needed an escape hatch to finish the chatbot in time. In week 1, I implemented polling instead of websockets. This time, I stayed with SQLite for database persistence, skipping Supabase. On a meta-level, I did a great job balancing my need to get work done with diving deeper into what I was interested in, which was honestly everything. Even test driven development, a part of software engineering that is considered rather boring and lower on the totem pole, is genuinely interesting to me. 
+
+I particularly enjoyed watching our instructors do a live leetcode session, a live code review, talking to an AI API, writing interfaces, and making authentication system flows and diagrams. Despite being in crypto for several years, I never fully grokked the public/private key cryptography flow until I sat down for 2 hours to properly diagram it. Now it's permanently etched into my brain. 
+
+What's also interesting is the meta-learning. I kept comparing what I was learning against week 1 Tic Tac Toe, since that was the only other real fullstack app I made. Maybe I'm overfitting the comparison since I lack other projects to measure my chatbot against, but I found the differences (and similarities!) between Tic Tac Toe and a chatbot really useful. At first, I only saw the differences: a chatbot is much easier than even an easy game because the data is just a linear list of user inputs + chatbot responses, no game state logic or multiplayer or synchronization needed. However, as our instructor David Shimmel pointed out after he read my daily post about the differences, Tic Tac Toe and a chatbot are both turn-based systems.  
+
+By far the best part of my week was preparing for the demo because I got to run fun experiments. I had chatGPT make an account, login, and talk to Claude as I spied on them in the terminal. My goal was to test their attractor states, a concept I got from reading a [Scott Alexander](https://www.astralcodexten.com/p/the-claude-bliss-attractor) post. Their conversations were fascinating; I saved them into SQLite to show in my demo. My experiment is briefly documented in my day 13 post below, which I plan on extrapolating into a longer technical post. For deep dives, posts 8, 10, and 13 linked below could each make stand-alone blog posts or full Substack essays. There are simply too many topics to write about!
 
 
 <br>
@@ -55,7 +68,7 @@ The system design diagrams were made by our instructors. Once I make my own, I'l
 
 <br>
 
-### Day 1 - Building intuition and meta-learning: setting up my personal harness (lily-claudebook)
+### Day 8 - Building intuition and meta-learning: setting up my personal harness (lily-claudebook)
 
 *Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-212459500?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
@@ -79,7 +92,7 @@ day at $5.49
 
 <br>
 
-### Day 2 - Building chatGPT (basic + styling)
+### Day 9 - Building chatGPT (basic + styling)
 *Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-212870706?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
@@ -104,7 +117,7 @@ System Design: https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curric
 <br>
 <br>
 
-### Day 3 - Building chatGPT (interfaces and data persistence)
+### Day 10 - Building chatGPT (interfaces and data persistence)
 
 *Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-213340967?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
@@ -134,7 +147,7 @@ https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-c
 <br>
 <br>
 
-### Day 4 - Building chatGPT (routers and authentication)
+### Day 11 - Building chatGPT (routers and authentication)
 
 *Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-213833543?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
@@ -155,7 +168,7 @@ https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-c
 
 -->
 
-### Day 5 - Getting chatGPT to talk with Claude
+### Day 12 - Getting chatGPT to talk with Claude
 
 *Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-214309374?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
@@ -174,7 +187,7 @@ https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-c
 
 -->
 
-### Day 6 - Demo Day
+### Day 13 - Demo Day
 
 *Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-214670345?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
@@ -182,6 +195,10 @@ https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-c
 [Twitter](https://x.com/lowyelling/status/2022829470487335276?s=20)*
 
 UI polish, deploy, and demo. Claude one-shotted the UI overhaul — Login page, iPhone-style message bubbles, markdown rendering, timestamps. Deployed to Railway, then fixed a bug where Claude's SDK was rejecting a createdAt field and added conversation title editing.
+
+My demo slides - 3 min!
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQR_5Ki2oNB_cif7F0_Dgms1rodq8fMABzXX70HDS2DSsFXe81pS80nSlxaL6pQN3Y7F0LgP8j96hQc/pubembed?start=false&loop=false&delayms=3000"  frameborder="0" width="600" height="338" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 - PR #15 `UI-demo` — Updated Login page UI, added markdown rendering for AI responses, iPhone-style message bubbles, chat layout, message timestamps, drawer timestamps (all Claude-generated)
 - PR #16 `railway-deploy` — PORT config for ViteExpress, client-side and server-side base URL setup for Railway deployment
@@ -199,4 +216,7 @@ Braindump for what I can improve, other ideas etc
 
 ### Long Term
 - Learn proper UI (same as week 1)
+- Streaming implementation
+- MCP tool call implementation
+- Add more interfaces and UI to reflect them e.g. dropdown menu for user to select which AI they want to talk to
 - Write a proper technical blog post about the bliss attractor state - maybe it is a full Substack article, idk
