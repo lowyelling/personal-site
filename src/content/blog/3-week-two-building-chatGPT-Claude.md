@@ -14,28 +14,28 @@ This was one of the best weeks of my life, not only because I entered the mythic
 
 <br>
 
-Making a clone of chatGPT is probably one of the best projects to do, not only to learn a bunch of fullstack technicalities like interfaces and authentication, but to truly develop an intuition for AI. It's crazy that an AI chatbot was frontier technology just 3-4 years ago, and now we consider it 101 worthy. Since we're already into unstructured territory, I can say that week 2 is my favorite structured project we completed at Fractal Tech. 
+Making a clone of chatGPT is probably one of the best projects to do, not only to learn a bunch of fullstack technicalities like interfaces and authentication, but to truly develop an intuition for AI. It's crazy that an AI chatbot was frontier technology just 3-4 years ago, and now we consider it 101 worthy. Since we're already into unstructured territory in week 4, I can say that week 2 is my favorite project we completed as a group in Fractal Tech bootcamp. 
 
-This week demanded more manual coding, which was a real overwhelming grind for me again. While Claude generated no code that I copy-pasted except for the demo, I got better at using Claude to generate step-by-step implementation plans for me by feeding it documentation and having another instance of Claude double-check the plan. I still had the documentation open in a side window to double-check, and got through my work with minimal hair-pulling. Prior to AI, doing even half the work we would do in a day probably took a week. Still, just like in week 1 with Tic Tac Toe, I needed an escape hatch to finish the chatbot in time. In week 1, I implemented polling instead of websockets. This time, I stayed with SQLite for database persistence, skipping Supabase. On a meta-level, I did a great job balancing my need to get work done with diving deeper into what I was interested in, which was honestly everything. Even test driven development, a part of software engineering that is considered rather boring and lower on the totem pole, is genuinely interesting to me. 
+This week demanded more manual coding, which was a real overwhelming grind for me again. While Claude generated no code that I copy-pasted (excepting the demo UI and botscript), I got better at using Claude to generate step-by-step implementation plans for me by feeding it documentation and having another instance of Claude double-check the plan. I still read the documentation in a side window to double-check, and got through my work with minimal crashing out. Prior to AI, doing even half the work we did in a day probably took a week. Still, just like in week 1 with Tic Tac Toe, I needed an escape hatch to finish the chatbot in time. In week 1, I implemented polling instead of websockets. This time, I stayed with SQLite for database persistence, skipping Supabase. On a meta-level, I did a great job balancing my need to get work done with diving deeper into what I was interested in, which was honestly everything. Even test driven development, a part of software engineering that is considered rather boring and lower on the totem pole, is genuinely interesting to me. 
 
-I particularly enjoyed watching our instructors do a live leetcode session, a live code review, talking to an AI API, writing interfaces, and making authentication system flows and diagrams. Despite being in crypto for several years, I never fully grokked the public/private key cryptography flow until I sat down for 2 hours to properly diagram it. Now it's permanently etched into my brain. 
+I particularly enjoyed watching our instructors do a live leetcode session, a live code review, talking to AI APIs, writing interfaces, and making authentication system flows and diagrams. Despite being in crypto for several years, I never fully grokked the public/private key cryptography flow until I sat down for 2 hours to properly diagram it. Now it's permanently etched into my brain. 
 
-What's also interesting is the meta-learning. I kept comparing what I was learning against week 1 Tic Tac Toe, since that was the only other real fullstack app I made. Maybe I'm overfitting the comparison since I lack other projects to measure my chatbot against, but I found the differences (and similarities!) between Tic Tac Toe and a chatbot really useful. At first, I only saw the differences: a chatbot is much easier than even an easy game because the data is just a linear list of user inputs + chatbot responses, no game state logic or multiplayer or synchronization needed. However, as our instructor David Shimmel pointed out after he read my daily post about the differences, Tic Tac Toe and a chatbot are both turn-based systems.  
+What's also interesting is the meta-learning. I kept comparing what I was learning against week 1 Tic Tac Toe, since that was the only other real fullstack app I made. Maybe I'm overfitting the comparison since I lack other projects to measure my chatbot against, but I found the differences (and similarities!) between Tic Tac Toe and a chatbot really useful. At first, I only saw the differences: a chatbot is much easier than even an easy game because the data is just a linear list of user inputs + chatbot responses, no game state logic or multiplayer or synchronization needed. However, as our instructor David Shimmel pointed out after he read my daily post about the differences, Tic Tac Toe and a chatbot are the same in one key aspect: they are both turn-based systems.  
 
-By far the best part of my week was preparing for the demo because I got to run fun experiments. I had chatGPT make an account, login, and talk to Claude as I spied on them in the terminal. My goal was to test their attractor states, a concept I got from reading a [Scott Alexander](https://www.astralcodexten.com/p/the-claude-bliss-attractor) post. Their conversations were fascinating; I saved them into SQLite to show in my demo. My experiment is briefly documented in my day 13 post below, which I plan on extrapolating into a longer technical post. For deep dives, posts 8, 10, and 13 linked below could each make stand-alone blog posts or full Substack essays. There are simply too many topics to write about!
+By far the best part of my week was preparing for the demo because I got to run fun experiments. I had chatGPT make an account, login, and talk to Claude as I spied on them in the terminal. My goal was to test their attractor states, a concept I got from reading a [Scott Alexander](https://www.astralcodexten.com/p/the-claude-bliss-attractor) post. Their conversations were fascinating; I saved them into SQLite to show in my demo. My experiment is briefly documented in my day 13 post below, which I plan on extrapolating into a longer technical post. For deep dives, posts 8, 10, and 13 linked below could be stand-alone blog posts or full Substack essays. There are simply too many topics to write about!
 
 
 <br>
 
 ### Learning about Learning
-- 30 Claude conversations. ~1,400 messages. ~$59 in Claude API costs
-- Understand gaps using the architecture/mechanical/syntax framework  
+- Week 2 = 30 Claude conversations. ~1,400 messages. ~$59 in Claude API costs
+- Characterizied my gaps using the architecture/mechanical/syntax framework  
 - Used Claude to quiz me on Tic Tac Toe 
-- The worst way to learn is to start with a solution and retrofitting them to problems
+- Worst way to learn: start with a solution and retrofit it to problems (*cough* bruteforce memorizing leetcode)
 - Speak about concepts outloud/teach them to a friend to really understand it (how I learned the cryptography flow)
 
 ### Key Concepts  
-- Interfaces are contracts, analogous to USB-C ports or plugs
+- Interfaces are contracts, analogous to USB-C ports or outlets
 - Generalize problems, not solutions - from Andrew Rose's code review
 - In code review, find the entrypoint and follow the flow of the code
 - To write beautiful code, focus on reasability and separation of concerns
@@ -201,7 +201,7 @@ https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-c
 
 UI polish, deploy, and demo. Claude one-shotted the UI overhaul — Login page, iPhone-style message bubbles, markdown rendering, timestamps. Deployed to Railway, then fixed a bug where Claude's SDK was rejecting a createdAt field and added conversation title editing.
 
-My demo slides - 3 min!
+My demo slides - 3 min again!
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQR_5Ki2oNB_cif7F0_Dgms1rodq8fMABzXX70HDS2DSsFXe81pS80nSlxaL6pQN3Y7F0LgP8j96hQc/pubembed?start=false&loop=false&delayms=3000"  frameborder="0" width="600" height="338" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
