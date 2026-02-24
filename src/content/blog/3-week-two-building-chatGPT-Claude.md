@@ -4,7 +4,7 @@
   description: "Making a clone of chatGPT to talk with Claude"                                                                                  
 ---                                                                                                                      
 
-I am writing about Fractal Tech week 2 sitting in the middle of week 4. Normally this would be subjected to serious memory degradation, but 1. I posted daily to Substack and Twittier/X and 2. in week 2 we built our own claudebooks as a form of meta-learning, so I have plenty of externalized memories to refer back on. Not to toot my own horn too much, but I'm really patting myself on the back for keeping up with those two crucial processes. Especially using the claudebook, since it takes an extra hour each day to extract my daily conversations with Claude and review them. 
+I am writing about Fractal Tech week 2 sitting in the middle of week 4. Normally this would be subjected to serious memory degradation, but 1. I posted daily to Substack and Twitter/X and 2. in week 2 we built our own claudebooks as a form of meta-learning, so I have plenty of externalized memories to refer back on. Not to toot my own horn too much, but I'm really patting myself on the back for keeping up with those two crucial processes. Especially using the claudebook, since it takes an extra hour each day to extract my daily conversations with Claude and review them. 
 
 This was one of the best weeks of my life, not only because I entered the mythic flowstate popularized by Mihaly Csikszentmihalyi while Clauding, a state I've only experienced before in painting and writing, but because I finally let go of being behind. Or rather, I let go of the concept of being behind. In week 1, I wrote about being bottom of the class and how I was coping with that (pretty well, but still coping), and now there's no impulse to compare at all. It's partially because I like everyone in my cohort, partially because comparison games are pointless and I'm naturally predisposed towards cooperation instead of competition, but it's mostly because the meta has changed. What does it even mean to be behind in the age of AI? I'll elaborate in the week 3 blogpost which I'll write and publish right after this one. There's too much good learning that happened in week 2 to belabor this particular point now. 
 
@@ -28,15 +28,20 @@ By far the best part of my week was preparing for the demo because I got to run 
 <br>
 
 ### Learning about Learning
-- 
+- 30 Claude conversations. ~1,400 messages. ~$59 in Claude API costs
+- Understand gaps using the architecture/mechanical/syntax framework  
+- Used Claude to quiz me on Tic Tac Toe 
+- The worst way to learn is to start with a solution and retrofitting them to problems
+- Speak about concepts outloud/teach them to a friend to really understand it (how I learned the cryptography flow)
 
 ### Key Concepts  
--  
--
+- Interfaces are contracts, analogous to USB-C ports or plugs
+- Generalize problems, not solutions - from Andrew Rose's code review
+- In code review, find the entrypoint and follow the flow of the code
+- To write beautiful code, focus on reasability and separation of concerns
 
 ### Random
--  
-- 
+-  Maccy is a solid clipboard manager
 
 ---
 ## Tech Stack
