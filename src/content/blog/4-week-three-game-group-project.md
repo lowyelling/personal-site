@@ -24,21 +24,21 @@
 
 ---
 ## Tech Stack
-- **Terminal:**
-- **IDE:**
-- **Github:**
-- **AI:**
-- **Runtime:**
-- **Languages:**
-- **Frontend:**
-- **Backend:**
-- **Styling:**
-- **Database:**
-- **Testing:**
-- **Linting:**
-- **Dev Tooling:**
-- **Live Deployment:**
-- **System Diagrams:**
+- **Terminal:** Still inside VS Code :)
+- **IDE:** Visual Studio Code
+- **Github:** [Music Bopper repo](https://github.com/flatspider/music-bopper)
+- **AI:** Claude Code Opus 4.6
+- **Runtime:** Bun
+- **Languages:** TypeScript, HTML, CSS
+- **Frontend:** PixiJS (WebGL/Canvas 2D rendering), Tone.js (Web Audio synthesis + MIDI playback), @tonejs/midi (MIDI file parsing), lil-gui (runtime debug/tuning panel)
+- **Backend:** None (static web app)
+- **Styling:** None (all rendering through PixiJS canvas)
+- **Database:** None
+- **Testing:** Vitest, jsdom
+- **Linting:** ESLint, typescript-eslint
+- **Dev Tooling:** Vite, Husky (git hooks), Bun scripts for MIDI-to-JSON conversion
+- **Live Deployment:** None yet (builds to dist/ via Vite)
+- **System Diagrams:** Pen and paper, Excalidraw, draw.io, Mermaid
 
 ---
 ## Daily Logs
