@@ -29,7 +29,7 @@ By far the best part of my week was preparing for the demo because I got to run 
 
 ### Learning about Learning
 - Week 2 = 30 Claude conversations. ~1,400 messages. ~$59 in Claude API costs
-- Characterizied my gaps using the architecture/mechanical/syntax framework  
+- Characterized my gaps using the architecture/mechanical/syntax framework  
 - Used Claude to quiz me on Tic Tac Toe 
 - Worst way to learn: start with a solution and retrofit it to problems (*cough* bruteforce memorizing leetcode)
 - Speak about concepts outloud/teach them to a friend to really understand it (how I learned the cryptography flow)
