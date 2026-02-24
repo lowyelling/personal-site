@@ -51,108 +51,98 @@ INTRO
 
 My daily posts on Substack and Twitter were fully written by me. But for the PR logs below, I let Claude Code read my git commit history and write the summaries, with me as the editor. 
 
-Also, the system design diagrams were made by our instructors. Once I make my own specific ones aka shows the suboptimal ways I implemented the game, I'll replace them/add them alongside the official ones. 
+The system design diagrams were made by our instructors. Once I make my own, I'll replace them/add them alongside the official ones. 
 
 <br>
 
 ### Day 1 - Setting up your personal harness (lily-claudebook)
 
 *Daily Posts:
-[Substack](https://substack.com/@lowyelling/note/c-209301854?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
+[Substack](https://substack.com/@lowyelling/note/c-212459500?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter](https://x.com/lowyelling/status/2018695207164719306?s=20)*
+[Twitter](https://x.com/lowyelling/status/2021082413305135221?s=20)*
+
 
 <br>
 
-### Day 2 -  
+### Day 2 - Building chatGPT (basic + styling)
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-212870706?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2021388779127251336?s=20)*
 
 
 <!--
 
-System Design: https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks/01-intro/assignments/1-simple-game-diagram-1.png
-
-![Game Diagram](https://raw.githubusercontent.com/fractal-bootcamp/bootcamp-monorepo/refs/heads/main/curriculum/weeks/01-intro/assignments/1-simple-game-diagram-1.png)
+System Design: https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-chatbot/assignments/sp2026/1-api-shell-shadcn.md
 
 --> 
 
-<img src="https://raw.githubusercontent.com/fractal-bootcamp/bootcamp-monorepo/refs/heads/main/curriculum/weeks/01-intro/assignments/1-simple-game-diagram-1.png" alt="System Diagram" width="600">  
+<img src="https://raw.githubusercontent.com/fractal-nyc/bootcamp-monorepo/refs/heads/main/curriculum/weeks/02-chatbot/assignments/sp2026/1-api-shell-shadcn.png" alt="System Diagram" width="600">  
 
 <br>
 <br>
 
-### Day 3 -  
+### Day 3 - Building chatGPT (interfaces and data persistence)
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-213340967?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2021753672062185867?s=20)*
 
 
 <!--
 System Design: 
-https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks/01-intro/assignments/2-styling-server-client.png
+https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-chatbot/assignments/sp2026/2-databases.md
 
 -->
 
-<img src="https://raw.githubusercontent.com/fractal-bootcamp/bootcamp-monorepo/refs/heads/main/curriculum/weeks/01-intro/assignments/2-styling-server-client.png" alt="System Diagram" width="600">  
+<img src="https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-chatbot/assignments/sp2026/2-databases-in-memory.png?raw=true" alt="System Diagram" width="600">
+
+<img src="https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-chatbot/assignments/sp2026/2-databases-files-sqlite.png?raw=true" alt="System Diagram" width="600"> 
+  
+<img src="https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-chatbot/assignments/sp2026/2-databases-remote-postgresql-supabase.png?raw=true" alt="System Diagram" width="600">   
+
 
 <br>
 <br>
 
-### Day 4 -  
+### Day 4 - Building chatGPT (routers and authentication)
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-213833543?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2022131274521907347?s=20)*
 
+https://attendabot.com/simulations/auth/
 
 
 <!--
 System Design: 
-https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks/01-intro/assignments/3-multi-game.png
-https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks/01-intro/assignments/3-server-client.png
+https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-chatbot/assignments/sp2026/3-routing-auth.md
 
 -->
 
-<img src="https://raw.githubusercontent.com/fractal-bootcamp/bootcamp-monorepo/refs/heads/main/curriculum/weeks/01-intro/assignments/3-multi-game.png" alt="System Diagram" width="600">  
-<img src="https://raw.githubusercontent.com/fractal-bootcamp/bootcamp-monorepo/refs/heads/main/curriculum/weeks/01-intro/assignments/3-server-client.png" alt="System Diagram" width="600">  
-
-<br>
-<br>
-
-
-### Day 5 -  
+### Day 5 - Getting chatGPT to talk with Claude
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-214309374?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2022508651416564135?s=20)*
 
 
 <!--
 System Design: 
-https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks/01-intro/assignments/4-realtime.png
-https://github.com/fractal-bootcamp/bootcamp-monorepo/blob/main/curriculum/weeks/01-intro/assignments/4-deployment.png
+https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/02-chatbot/assignments/sp2026/tool-calling-vs-mcp-primer.md
 
 -->
-
-<img src="https://raw.githubusercontent.com/fractal-bootcamp/bootcamp-monorepo/refs/heads/main/curriculum/weeks/01-intro/assignments/4-realtime.png" alt="System Diagram" width="600">  
-<img src="https://raw.githubusercontent.com/fractal-bootcamp/bootcamp-monorepo/refs/heads/main/curriculum/weeks/01-intro/assignments/4-deployment.png" alt="System Diagram" width="600">  
-
-<br>
-<br>
 
 ### Day 6 - Demo Day
 
 *Daily Posts:
-[Substack]()
+[Substack](https://substack.com/@lowyelling/note/c-214670345?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
 |
-[Twitter]()*
+[Twitter](https://x.com/lowyelling/status/2022829470487335276?s=20)*
 
 
 ---
