@@ -6,6 +6,8 @@
 
 Live link! 
 
+One day I was too tired to even make my daily post on Substack/Twitter. Takeaway: "I never want to build a game again! I had the dream team and it was still a terribly hard experience." Genuine respect for game developers — they are REAL software engineers.
+
 Josh Citarella: https://substack.com/@lowyelling/note/c-216705652?r=1mz4jf&utm_source=notes-share-action&utm_medium=web
 
 Michael Dean essay visualizer: https://substack.com/@lowyelling/note/c-217188332?r=1mz4jf&utm_source=notes-share-action&utm_medium=web
@@ -18,7 +20,7 @@ Michael Dean essay visualizer: https://substack.com/@lowyelling/note/c-217188332
  Tests for games are quite different from tests 
 
 
-Other demos included Frogger, a corporate strategy game, an AR item collection game, and a Schelling Point game with mobile responses. Takeaway: "I never want to build a game again! I had the dream team and it was still a terribly hard experience." Genuine respect for game developers — they are REAL software engineers.
+Other demos included Frogger, a corporate strategy game, an AR item collection game, and a Schelling Point game with mobile responses. 
 
 <br>
 
@@ -90,6 +92,12 @@ Another Monday, another experimentation day. Everyone at Fractal built individua
 - PR #35 `ui-work` — UI and sprite visual overhaul: tile gradients with depth, character eyes/expressions, bomb glow, power-up float animations, HUD icons, styled menu overlays, retained layer rendering
 
 <br>
+Snake system diagram:
+<br>
+<img src="https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/03-group-project/sp2026/2-Tuesday-game-architecture-diagram.png?raw=true" alt="System Diagram" width="600">  
+
+<br>
+<br>
 
 ### Day 16 - Building the game engine from scratch
 
@@ -115,8 +123,6 @@ First day of the group project. The dream team #1  — Conor, Josh, and I — de
 - PR #13 `feat/managers` (Josh) — Notes about manager architecture
 
 
-<br>
-
 ### Day 17/18 - Building the game scenes/logic - wiring audio, scoring, and first real GitHub collaboration
 
 *Daily Posts:
@@ -138,7 +144,7 @@ Two intense days of manual coding. The first day, the team spent significant tim
 
 <br>
 
-### Day 19 - Architecture drift and the entropy of teamwork
+### Day 19 - Architecture drift/the entropy of teamwork
 
 *Daily Posts:
 [Substack](https://substack.com/@lowyelling/note/c-217498706?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
@@ -185,4 +191,4 @@ Braindump for what I can improve, other ideas etc
 
 ### Long Term
 - Add more music
-- Make system diagram for flow
+- Make system diagram for music bopper from scratch
