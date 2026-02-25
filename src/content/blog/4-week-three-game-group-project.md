@@ -4,6 +4,8 @@
   description: "Creating Guitar Hero/DDR/OSU from scratch with the dream team"
 ---
 
+Play our game on [Render](https://music-bopper.onrender.com/)!
+
 Writing this reflection of week 3 in the middle of week 4. First (and only?) group project done at Fractal Tech. And the last structured week, which is crazy to say. AI is just moving too fast for us to keep following the structured work from last cohort; we were meant to keep manually coding, but now we're fully unleashing Claude. Not vibecoding, but steering it properly. I still plan on learning the fundamentals over the next year, since I don't think I can properly steer without the background knowledge. It's a strange time to learn software engineering--or anything, really. As I asked in my last blog post, what does it mean to be behind (or ahead) in the age of AI? 
 
 I can't answer that without writing a real essay, not a blog post. That's the writing-as-thinking painful autotelic process, asking a question and meandering through research and personal experience until the answer reveals itself to me as a true feeling. I have an idea that I've been discussing with Claude around cybernetics; that's my directional answer for now. Cybernetics, from the Greek word kybernḗtēs, meaning steersman. Kubernetes, Google's solution for steering servers, analogous to software engineers steering AI agents. Cybernetics, where feedback into a system's memory changes the future actions of the system. Cybernetics, man merging with machine through presence. That's what I'm doing and must continue doing: giving my attention to Claude. May the answer spring from me, from personal experience, in the upcoming weeks. 
