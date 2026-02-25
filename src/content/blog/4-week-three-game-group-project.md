@@ -4,9 +4,22 @@
   description: "Creating Guitar Hero/DDR/OSU from scratch with the dream team"
 ---
 
----
+Writing this reflection of week 3 in the middle of week 4. First (and only?) group project done at Fractal Tech. And the last structured week, which is crazy to say. AI is just moving too fast for us to keep following the structured work from last cohort; we were meant to keep manually coding, but now we're fully unleashing Claude. Not vibecoding, but steering it properly. I still plan on learning the fundamentals over the next year, since I don't think I can properly steer without the background knowledge. It's a strange time to learn software engineering--or anything, really. As I asked in my last blog post, what does it mean to be behind (or ahead) in the age of AI? 
+
+I can't answer that without writing a real essay, not a blog post. That's the writing-as-thinking painful autotelic process, asking a question and meandering through research and personal experience until the answer reveals itself to me as a true feeling. I have an idea that I've been discussing with Claude around cybernetics; that's my directional answer for now. Cybernetics, from the Greek word kybernḗtēs, meaning steersman. Kubernetes, Google's solution for steering servers, analogous to software engineers steering AI agents. Cybernetics, where feedback into a system's memory changes the future actions of the system. Cybernetics, man merging with machine through presence. That's what I'm doing and must continue doing: giving my attention to Claude. May the answer spring from me, from personal experience, in the upcoming weeks. 
+
+If you read the last paragraph and went, what the hell? Welcome to a preview of what I consider my "real writing." Random tangents come together in the end. To me, they're not so random. Let me show you. The theme of my third week was entropy, the tendency towards disorder. Claude-slop within a few turns. Team vision and architecture drifting over time. My attention leaving the game and back towards writing, towards a group discussing an essay. And what was the essay about? Cybernetics. The self-correcting, temporary answer to entropy. A dream envisioned by math prodigy Norbert Wiener, the reality I am living in this AI bootcamp.  
+
+
 ## Reflection
 
+I think I'm writing partially from a dream-state because I've been so tired. I tired easily from making the music bopper game last week; it was the first time I felt my attention slipping from the bootcamp. I wrote in my feedback to the instructors that it's because I don't care for games, which isn't totally true. Claude helped me realize that what I really don't care for are predetermined execution paths because I lose all exploratory agency. When I'm allowed to meander and investigate, I dive deep. For example, I learned so much about the history of game engines and audio clocks because I like testing the boundary of things. 
+
+Why can you use React to make Snake, but not Bomberman? Why can you use the same game engine for a Rhythm music bopper game and Snake? Why do we pick the audio chip time instead of CPU time for music syncing? In other words -- what makes a thing belong with a set of other things? 
+
+Alas, most of the time, I couldn't ask those types of questions. I was timeboxed for execution, and only piecemeal at that. The audio part of the codebase remains rather inscrutable to me, since I didn't own that pipeline. So despite having the best team one could ask for, I think I would've gained more if I was off on my own for this project. But then again, I collaborated on a project for the first time ever on Github, which was its own priceless experience. Especially when paired with such patient and experienced software engineers. The next team won't get so many weird merge conflicts from me anymore :) 
+
+I'm too tired to write more, so I'll send it now. Maybe I'll read this tomorrow with fresh eyes and add a sprinkle more. I won't ask Claude to help me write the bulk of this; I don't want to pollute my training data for this week's project. 
 
 <br>
 
@@ -21,6 +34,8 @@
 - compaction turns noise into signal
 - subagents keep your context clean
 - human attention belongs at the top of the pipeline
+
+Games are fundamentally different from web apps — continuous (game loop ticking every frame) vs. event-driven (respond to user actions)
 
 ### Random
 - It might be time to start full-time hot mic'ing/speaking to Claude, sigh (I quite like typing)
