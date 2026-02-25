@@ -1,6 +1,6 @@
 ---                                                                                                                              
   title: "Week Two - Making chatGPT: Two mirrors looking at each other"                                                                         
-  date: 2026-02-24                                                                                                                 
+  date: 2026-02-16                                                                                                                 
   description: "Making a clone of chatGPT to talk with Claude"                                                                                  
 ---                                                                                                                      
 
