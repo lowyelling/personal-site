@@ -29,19 +29,20 @@ First week I slipped on the daily Tech Bro posts.
 ## Tech Stack
 - **Terminal:** Still inside VS Code :)
 - **IDE:** Visual Studio Code
-- **Github:** [Music Bopper repo](https://github.com/flatspider/music-bopper)
+- **Github:** [Voice Fine-Tuning repo](https://github.com/lowyelling/voice-fine-tuning)
 - **AI:** Claude Code Opus 4.6
-- **Runtime:** Bun
-- **Languages:** TypeScript, HTML, CSS
-- **Frontend:** PixiJS (WebGL/Canvas 2D rendering), Tone.js (Web Audio synthesis + MIDI playback), @tonejs/midi (MIDI file parsing), lil-gui (runtime debug/tuning panel)
-- **Backend:** None (static web app)
-- **Styling:** None (all rendering through PixiJS canvas)
+- **Languages:** Python, Markdown (training data curation)
+- **Models:** Llama 3.1 8B (LoRA fine-tuning), GPT-2-XL (full fine-tuning)
+- **ML Libraries:** transformers, peft (LoRA adapters), bitsandbytes (4-bit quantization), datasets, accelerate
+- **Data Processing:** tiktoken (tokenization), custom Python scripts (preprocess, format, truncate)
+- **Training Infrastructure:** Google Colab (T4 GPU, free tier), Google Drive (checkpoint persistence)
+- **Frontend:** None
+- **Backend:** None
 - **Database:** None
-- **Testing:** Vitest, jsdom
-- **Linting:** ESLint, typescript-eslint
-- **Dev Tooling:** Vite, Husky (git hooks), Bun scripts for MIDI-to-JSON conversion
-- **Live Deployment:** None yet (builds to dist/ via Vite)
-- **System Diagrams:** Pen and paper, Excalidraw, draw.io, Mermaid
+- **Testing:** Manual evaluation via canary prompts + scoring rubric (very loosely...)
+- **Dev Tooling:** HuggingFace Hub (model access), JSONL training format
+- **Live Deployment:** None (research project)
+- **System Diagrams:** Pen and paper, Excalidraw
 
 ---
 ## Daily Logs
