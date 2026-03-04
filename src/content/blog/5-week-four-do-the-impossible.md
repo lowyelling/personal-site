@@ -14,15 +14,18 @@ First week I slipped on the daily Tech Bro posts.
 <br>
 
 ### Learning about Learning
-- Week 3 = 39 conversations. ~$80 in Claude API costs
--
+- Week 4 = 42 conversations. ~$120 in Claude API costs
+- Claude sees to fixate on time pretty heavily. I made the mistake of telling it was week 4 at Fractal, so it kept the scope of my project much smaller than it could've been e.g. I could've used headless GPUs instead of Google Colab
+- Claude hates spinning up subagents on its own - you have to ask it explicitly
+
 
 ### Key Concepts
-- Temporal
-
+- Philosophical conversations lead to technical decisions e.g. I asked why earlier models were better at writing poetry, and thus GPT-2 was added to the experiment
+- Constraints are teachers e.g. GPT-2 1,024 token limit
 
 ### Random
-- 
+- Want to try Lattice + context engineering
+- Want to try literally speaking to Claude through a local voice model
 
 
 ---
@@ -65,8 +68,6 @@ First Sunday I actually rested. Besides doing chores, I basically spent all day 
 Walking through fresh powder in the middle of usually busy roads was amazing. 
 
 Class was canceled which I don't think ever happens with Fractal, but 7 people/half the group still made it in today. We spent the day thinking about what it means to do the impossible with AI. I had no interest in trying anything except automating my writing, so I looked into research papers and talked to Claude about it all day. 
-
-<br>
 
 ### Day 23 - Project Setup and Planning Docs
 
