@@ -1,7 +1,7 @@
 ---
   title: "Week Four - Can AI Automate My Writing?"
   date: 2026-03-03
-  description: "We were challenged to do the impossible with AI"
+  description: "Challenged to do the impossible with AI"
 ---
 
 First week I slipped on the daily Tech Bro posts. 
@@ -42,14 +42,14 @@ First week I slipped on the daily Tech Bro posts.
 - **Testing:** Manual evaluation via canary prompts + scoring rubric (very loosely...)
 - **Dev Tooling:** HuggingFace Hub (model access), JSONL training format
 - **Live Deployment:** None (research project)
-- **System Diagrams:** Pen and paper, Excalidraw
+- **System Diagrams:** Pen and paper, Excalidraw (why doesn't Excalidraw let you make a free account??)
 
 ---
 ## Daily Logs
 
-My daily posts on Substack and Twitter are fully written by me. But for the PR logs below, I let Claude Code read my git commit history and write the summaries, with me as the editor. 
+My daily posts on Substack and Twitter are fully written by me. But for the PR logs below, I let Claude Code read my git commit history and write the summaries, with me as the editor.
 
-The system design diagrams were made by our instructors. Once I make my own, I'll replace them/add them alongside the official ones. 
+We had one system design lecture this week, I think on Wednesday the 25th. Our instructor made this fun simulation about [scaling to millions](https://attendabot.com/simulations/scaling)
 
 <br>
 
@@ -158,7 +158,7 @@ My demo slides - 3 min once again. I actually had about 45 sec left to fill.
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTgm3_5ZiKWqa7GUyMf9P7kgGQ_62y_XBs1PX7H9oTIW6MaogkyWpczBlesEoTxs9vSEM7jAlizA9Sp/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="600" height="338" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
-Could've prepped a lot more for the demo prep day. Claude helped update the Gradio UI to show base vs fine-tuned outputs side by side with canary prompts. I then spent the rest of the morning fighting production issues: added request queues so live demo traffic wouldn't crash Llama, fixed PyTorch overloading CPU RAM by having GPT-2 stream weights by shard, password-gated Llama access, and ultimately had to restrict to GPT-2-only for the live demo.
+Could've prepped a lot more for the demo. Claude helped update the Gradio UI to show base vs fine-tuned outputs side by side with canary prompts. I then spent the rest of the morning fighting the Demo Gods: added request queues so live demo traffic wouldn't crash Llama, fixed PyTorch overloading CPU RAM by having GPT-2 stream weights by shard, password-gated Llama access, and ultimately had to restrict to GPT-2-only for the live demo.
 
 - Combined inference into one notebook with updated Gradio UI (base + canary outputs)
 - Added request queues to prevent live demo from crashing Llama
@@ -174,7 +174,12 @@ Could've prepped a lot more for the demo prep day. Claude helped update the Grad
 Braindump for what I can improve, other ideas etc
 
 ### Near Term
--
+- Publish permanent Gradio link
 
 ### Long Term
--
+- Redesign training pairs so that each essay is broken into paragraphs, 10x the training data
+- Switch infrastructure from Google Colab to headless GPUs e.g. Modal
+- Add in other low hanging fruit training data e.g. Twitter threads
+- Write a lot more so that I increase my training dataset
+- Try discriminator and generator model pairs
+- Try text diffusion models
