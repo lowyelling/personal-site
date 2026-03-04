@@ -1,17 +1,37 @@
 ---
   title: "Week Four - Can AI Automate My Writing?"
-  date: 2026-03-03
-  description: "Challenged to do the impossible with AI"
+  date: 2026-03-04
+  description: "Do the impossible with AI with voice fine-tuning"
 ---
 
-First week I slipped on the daily Tech Bro posts. 
+First week I slipped on the daily Tech Bro'ing out at Fractal posts. Blame the blizzard! 
 
+Nah, I was just having an off-week. Still having an off-week, to be honest. Hope it'll be cured once I finish writing this blog post. The process of writing almost never makes me feel better, but I think it uncongests a lot of background noise. If you're curious about one of the things making me low-key crash out, I [published an article](https://furniturecoins.substack.com/p/what-ai-is-really-doing-to-work) earlier this week re: the future of white-collar work. Soon after I published, I learned about [Howard Marks](https://substack.com/inbox/post/189345212) and what [he had to say](https://www.oaktreecapital.com/insights/memo/ai-hurtles-ahead) last month about AI and labor. It's time to start smoking again. #itsjoever
+
+But actually, we're so back. I'm grieving and wondrous at the same time. Living in contradiction, as my bio says everywhere. I want to cry, but the tears won't come, and I'm not sure if they're tears of joy or sadness or both/neither. Such an expansive claustrophobia. In any case, Howard Marks ended his investment memo with the right sentiment, a quote I have written down on the cover page of every journal I have: "I'd rather be an optimist and be proven wrong than a pessimist and be proven right." 
+
+Onwards and upwards to post-scarcity space communism. 
 
 ## Reflection
 
+Week 4 at Fractal Tech was the first totally unstructured week. I peeked at past cohorts, and they were doing leetcode drills and such in week 4. But now, Claude Code has gotten so good that we'd be remiss not to full send and just Opus-pill and Claude-maxx. Too bad, because I really could use the drills. 
 
+Our challenge: do what you think is impossible using AI. Most classmates went for superscale, inspired by the likes of [isometric NYC](https://isometric.nyc/). We saw some insane demos at the end of week one like [Google Mars](https://google-mars.vercel.app/) and [NYC in Guassian splats](https://supersplat-cyan.vercel.app/). 
 
-<br>
+But for me, scale is meh. This probably bodes poorly for me as a future software engineer, but I just have to honor my authentic tiny tinkerer self. I don't find it interesting. Scale tempts me to troll incredible engineers like Mr. Isometric NYC with links to my much superior project [Tic Tac Toe](https://www.lowyelling.com/blog/2-week-one-tic-tac-toe). 
+
+For real though, what IS interesting to me is highly personal (and unfortunately PhD frontier research). 
+
+I think it's impossible for AI to automate my writing. Or to generalize, writing in general. It's counterintuitive to me that AI can in fact draw but cannot write. I really thought the opposite would be true. And I'm not saying this out of my usual vibes-based analysis either; I'm a very good painter, and an even better writer (or more specifically, I have a much higher ceiling with writing than I do art). You can be the judge yourself once I get my art portfolio up and running on this site. For now, see my [single Substack post](https://furniturecoins.substack.com/p/how-i-arted) about my art gallery showing as proof.
+
+Thus my week was spent on a data science/machine learning experiment. I cracked open the black magic box to fine-tune AI to sound like me, trained on my own data. This was a totally different stack from the usual fullstack webapp stuff: Python, opensource models like GPT-2 and Llama, ML libraries etc. I remember a bit of Python from my once-in-a-blue moon scripting days (I still write .append everytime I mean to write .push, curse you Javascript), but Claude basically did all the work for me. It wrote my preprocessing scripts, setup my Google Colab notebooks with the opensource models, even ran the Google Colab notebook via Claude in Chrome. The real work though was done and bottlenecked by me: my own writing samples and my curated training dataset. 
+
+Unfortunately, I only had about ~20 articles, ~8 of which were real essays, and about 170 or so shorter Substack Notes that could be used for training. I need about 10x the amount to even qualify as a small training dataset, so I better write a helluva lot more over the next few years if I want to really automate my writing. But maybe we'll hit AGI by then, so who cares if AI can write like me? 
+
+So spoiler alert: neither GPT-2 nor Llama were able to sound like me by the end of the week. Not even close. On occasion, they would spit out a directionally correct sentence i.e. mean and homosexual sounding, but the training loss curves indicate they were more likely memorizing than generalizing, especially GPT-2. Pretty normal for a tiny dataset of ~160 prompt-response pairs and ~10 holdouts. 
+
+I'll stop here and consider writing a more technical blog post explaining my reasoning with links to papers and such, because I want to continue this experiment over the years. My hunch is that AI can't write because of architectural (and maybe mathematical?) limitations. AI image generators are great at taking metaphorical descriptions and slowly diffusing the whole canvas over time to mood match. They "see" the whole painting from the very beginning. However, LLMs output text in a linear fashion, even though the writing process is just as nonlinear as the painting process. So my intuition says that using an AI image generation process for writing would get us much closer to automating writing, and lo and behold, frontier research into text diffusion models like (LlaDA)(https://huggingface.co/GSAI-ML/LLaDA-8B-Base) are attempting to tackle this very problem. The tricky part is that pixels are continuous, whereas text is discrete, so you probably have to do some weird advanced math to make it work. Each day my regret at not studying mathematics grows ever stronger. 
+
 
 ### Learning about Learning
 - Week 4 = 42 conversations. ~$120 in Claude API costs
