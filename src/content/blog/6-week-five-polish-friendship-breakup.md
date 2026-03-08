@@ -24,20 +24,21 @@
 ## Tech Stack
 - **Terminal:** Still inside VS Code :)
 - **IDE:** Visual Studio Code
-- **Github:** [Voice Fine-Tuning repo](https://github.com/lowyelling/voice-fine-tuning)
+- **Github:** [Discord Dashboard repo - private, sorry!](https://github.com/lowyelling/discord-dashboard)
 - **AI:** Claude Code Opus 4.6
-- **Languages:** Python, Markdown (training data curation)
-- **Models:** Llama 3.1 8B (LoRA fine-tuning), GPT-2-XL (full fine-tuning)
-- **ML Libraries:** transformers, peft (LoRA adapters), bitsandbytes (4-bit quantization), datasets, accelerate
-- **Data Processing:** tiktoken (tokenization), custom Python scripts (preprocess, format, truncate)
-- **Training Infrastructure:** Google Colab (T4 GPU, free tier but I did pay for 100 compute credits), Google Drive (checkpoint persistence)
-- **Frontend:** None
-- **Backend:** None
-- **Database:** None
-- **Testing:** Manual evaluation via canary prompts + scoring rubric (very loosely...)
-- **Dev Tooling:** HuggingFace Hub (model access), JSONL training format
-- **Live Deployment:** None (research project)
-- **System Diagrams:** Pen and paper, Excalidraw (why doesn't Excalidraw let you make a free account??)
+- **Languages:** Python, TypeScript
+- **Frontend:** React 19, Vite 7, TypeScript 5.9
+- **Data Visualization:** D3.js v7 — custom-built charts (streamgraphs, heatmaps, latency EKGs, bar charts, line charts, annotation timelines). No charting libraries.
+- **NLP & Sentiment:** sentence-transformers (semantic embeddings for TextTiling topic segmentation), VADER (valence/sentiment analysis), OpenAI Whisper (voice message transcription)
+- **Data Processing:** pandas, NumPy, custom Python pipeline (parse → metrics → export)
+- **Data Formats:** Discord JSON exports → Parquet (intermediate) → JSON (dashboard consumption)
+- **Exploratory Analysis:** Jupyter notebooks (8 notebooks: exploration → activity → embeddings → topics → bids → Gottman → TextTiling → valence), Plotly (notebook visualizations)
+- **Backend:** None (static site, all data pre-computed)
+- **Database:** None (static JSON pipeline)
+- **Testing:** Manual notebook-based validation
+- **Dev Tooling:** ESLint, typescript-eslint, setuptools (Python packaging)
+- **Live Deployment:** Vercel
+- **System Diagrams:** Pen and paper
 
 ---
 ## Daily Logs
