@@ -6,7 +6,7 @@
 
 On Monday last week, my former best friend of over a decade broke up with me. 
 
-So naturally, I did the most tech bro thing imaginable and turned our message history into a [deployed data essay](https://goodbyefriend.vercel.app/). 
+So naturally, I did the most tech bro thing imaginable and turned our message history into a [deployed data story](https://goodbyefriend.vercel.app/). 
 
 <!--
 ![Goodbye Friend GIF](/images/blog/GoodbyeFriend.gif)
@@ -17,7 +17,7 @@ So naturally, I did the most tech bro thing imaginable and turned our message hi
 
 I won't belabor the emotional experience of creating and then demo'ing this (twice), since this is meant to be more of a technical blog post. And I plan to write a real essay about it for my March post on Substack. So I'll just rephrase a [tweet I wrote](https://x.com/lowyelling/status/2030738392208871702) before getting to the meat and potatoes. 
 
-Last week, I was already crashing out over the future of work/an existential identity crisis. This project helped me feel curious again, and pulled me back into calm competence. Data analysis and visualization is in my wheelhouse; writing weird essays is in my wheelhouse. I hadn't combined them before, so this was my chance. Data analysis especially was never a zero-to-one experience. I was usually working with structured data (SQL) and using existing visualization tools and frameworks (PowerBI, R ~8 years ago). 
+Last week, I was already crashing out over the future of work/an existential identity crisis. This project helped me feel curious again, and pulled me back into calm competence. Data analysis and visualization is in my wheelhouse; writing weird essays is in my wheelhouse. I hadn't combined them before, so this was my chance. Data analysis especially was never a zero-to-one experience. I was usually working with structured data (SQL) and using existing visualization tools and frameworks (PowerBI, R ~8 years ago which was amazing). 
 
 When I look at the finished work, there's a sense of peace and appreciation for what I think is a beautiful artifact. There's no vulnerability hangover for me; maybe I got enough practice over the last year opining my bizarre takes, or maybe it's because I don't think about other people when I share things. If someone sees this and can relate to it, that's a bonus. 
 
@@ -25,6 +25,14 @@ The personal is how you get to the universal.
 
 
 ## Reflection
+
+I didn't set out to make a data story, which apparently is called scrollytelling. It's a design choice popularized by the New York Times; D3.js, the Javascript library that drives custom visualizations, was created by former NYT graphics editor Mike Bostock. 
+
+In fact, I didn't set out to make any data visualizations. You have to look at the data first before you think about visualizations; I wasn't sure there'd be a story in the data worth visualizing. And I didn't think I'd go public with a Saturday demo until Thursday night. At Fractal Tech, our week five assignment was to scope down and polish a great product or tool to completion, ideally with user feedback. I was working on a Substack tool, which was enraging to research (details in the logs below if you want my anti-Substack rants). We're allowed to demo anything related to our experience though, so I was thinking of sharing something about managing crash-outs. But lo and behold, this data story emerged organically. 
+
+What I started with was an extraction of messages. I have a penchant towards data hoarding, so when anything ends, whether an online course or relationship, I'm saving that shit. So Monday went: got the last text, sent one last text back, exported data and media. 
+
+After other failed experiments, I returned to the data on Wednesday. What was in the data? Did the data match my memory? Were the signs of death always lurking there, unknown to us? 
 
 two algorithms asking different questions. HDBSCAN asks "which messages belong together?" (bottom-up); TextTiling asks "where did the conversation change?" (top-down). HDBSCAN got 20% coverage because casual DMs like "lol" embeds as nothing useful. TextTiling gets 100% coverage because short messages inherit context from their neighbors inside a sliding window. The key insight: conversation is sequential, and HDBSCAN throws away that order.  
 
@@ -43,7 +51,7 @@ Creating labs! These were real useful artifacts
 
 
 ### Key Concepts
-- Data pipeline as architecture: Discord JSON → parse → metrics → Parquet → JSON → d3.js
+- Data pipeline as architecture: Discord JSON → parse → metrics → Parquet → JSON → D3.js
 - An (interesting, imo) application of psychological/relationship frameworks (Gottman Institute) and hypothesis testing ("Does the data match my memory?")
 - Two-layered classification: first = topic of discussion, second = valence (how it felt to talk about those topics) 
 - HDBSCAN vs TextTiling: two different algorithms drew the same river shape, which means they likely converged on real meaning in the data
@@ -132,13 +140,13 @@ Decided to go full tech bro and turn my dead friendship into a data science proj
 |
 [Twitter](https://x.com/lowyelling/status/2029725032612778114?s=20)*
 
-Crashout half-exited. Went from Jupyter notebooks to a working NYT-style scrollytelling dashboard with 6 d3.js visualizations. I did ask Claude briefly whether analyzing a friendship through data is even a healthy thing to do, but decided to continue down my sociopathic path. 
+Crashout half-exited. Went from Jupyter notebooks to a working NYT-style scrollytelling dashboard with 6 D3.js visualizations. I did ask Claude briefly whether analyzing a friendship through data is even a healthy thing to do, but decided to continue down my sociopathic path. 
 
 - PR #2 `review` — Compound engineering review of notebooks and pipeline code
 - PR #3 `work` — Massive cleanup: vectorized response_latency from O(n²) to O(n), extracted dead_air_gaps(), fixed timezone handling, hardened Claude API parsing with caching, replaced sys.path hack with pip install -e ., saved row-level metrics for dashboard drill-down
 - PR #4 `plan2` — Added extract_bid_pairs and create_conversation_chunks to metrics module, built notebooks 05-bids and 06-gottman for relationship dynamics analysis
 - PR #5 `nb5-6` — Fixed bids notebook (idempotent merge, retry failed pairs, filter noisy months), re-scored Gottman horsemen as interpersonal-only, deduplicated bid pairs in metrics
-- PR #6 `dashboard` — The big one: brainstorm and implementation plan docs, reorganized data into pipeline/cache/metrics/raw, built parquet-to-JSON export script, created the React + D3 scrollytelling data essay with 6 initial visualizations
+- PR #6 `dashboard` — The big one: brainstorm and implementation plan docs, reorganized data into pipeline/cache/metrics/raw, built parquet-to-JSON export script, created the React + D3 scrollytelling data story with 6 initial visualizations
 
 <br>
 
