@@ -16,8 +16,33 @@ For others - I don't think about other people tbh when I share anything these da
 
 ## Reflection
 
+two algorithms asking different questions. HDBSCAN asks "which messages belong together?" (bottom-up); TextTiling asks "where did the conversation change?" (top-down). HDBSCAN got 20% coverage because casual DMs like "lol" embeds as nothing useful. TextTiling gets 100% coverage because short messages inherit context from their neighbors inside a sliding window. The key insight: conversation is sequential, and HDBSCAN throws away that order.  
+
+Creating labs! These were real useful artifacts 
+[latency](https://goodbyefriend.vercel.app/latency-lab.html)
+[latency ekg](https://goodbyefriend.vercel.app/latency-ekg.html)
+[stream chart](https://goodbyefriend.vercel.app/stream-lab.html)
+[valence](https://goodbyefriend.vercel.app/valence-lab.html)
 
 
+### Learning about Learning
+- Week 5 = 38 conversations. ~$151 in Claude API costs
+- To solve an existential crisis crash-out, simply channel a different sort of loss into a beautiful artifact
+- I think I understand my project selection filter more: "does the question pull me in?" is necessary but insufficient; I also need "does the work between the question and the answer stay interesting?" (last week's fine-tuning lost momentum due to the manual, repetitive work of making training data pairs)
+- Feedback from peers is key; a bootcamp friend suggested emotional valence, which shifted the entire underlying thesis
+
+
+### Key Concepts
+- Data pipeline as architecture: Discord JSON → parse → metrics → Parquet → JSON → d3.js
+- An (interesting, imo) application of psychological/relationship frameworks (Gottman Institute) and hypothesis testing ("Does the data match my memory?")
+- Two-layered classification: first = topic of discussion, second = valence (how it felt to talk about those topics) 
+- HDBSCAN vs TextTiling: two different algorithms drew the same river shape, which means they likely converged on real meaning in the data
+- Design as argument: what to keep in terms of data visualization, what to throw away - the final chart was in grayscale because the data can't measure what's not there
+- Static site as a design decision: No API/fetch/runtime data loading. JSON files are bundled at build time. Final artifact is a frozen snapshot, closer to an essay than a web app. 
+
+### Random
+- Making the gif took nearly 2 hours from screen recording -> QuickTime -> redo in iMovie -> [ezgif](https://ezgif.com/video-to-gif)...I have no video editing skillz
+- iMovie freeze frame and speed adjustments are pretty good, though I wished I had an OP AI video editor that I could just talk to instead of Cmb+B everywhere
 
 
 ---
@@ -45,7 +70,7 @@ For others - I don't think about other people tbh when I share anything these da
 
 My daily posts on Substack and Twitter are fully written by me. For the PR logs below, I let Claude Code read my git commit history and write the summaries, with me as the editor.
 
-We had one system design lecture this week on web crawling! I think on Wednesday the 25th. Our instructor made this fun simulation about [scaling to millions](https://attendabot.com/simulations/scaling)
+We had one system design lecture this week on [web crawling](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/system-design/web-crawler/web-crawler.md), which was excellent. I loved the topic and I enjoy system design lectures. Lecture was Wednesday the 4th, then we had two recitations on it Thurs and Sat. I called the diagram a [spider-looking thing](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/system-design/web-crawler/web-crawler.png?raw=true)
 
 <br>
 
@@ -53,7 +78,7 @@ We had one system design lecture this week on web crawling! I think on Wednesday
 
 I wrote and published [What AI is really doing to work](https://furniturecoins.substack.com/p/what-ai-is-really-doing-to-work) on Substack.
 
-The future of work was causing me to crash out last week and half of this week...a self-induced problem! 
+The future of work was causing me to crash out last week, a crisis that erupted in the first half of this week...a self-induced problem! 
 
 <br>
 
@@ -113,6 +138,8 @@ Skipped daily post ;(
 
 Story building and feedback time. Iterated on charts, wrote narrative content. Feedback from two peers made their way into the dashboard - shoutout to John for the emotional valence idea and Josh for removing the left-to-right Github scrolling. 
 
+Went out to Jongro Korean BBQ with a group of six, including a friend visiting from SF. Came back to Fractal and worked until 2am. 
+
 - PR #7 `datastory` — Replaced bid/Gottman charts with shadow profile story arc, added asymmetry toggle (initiation vs presence vs volume), contribution ratios with hover tooltips, voice message latency chart, text latency prototypes, river graph with zero-baseline stacked area styling, fixed EKG time domain axis
 - PR #8 `plan3` — Added README (oops finally), brainstorm docs for 4 planned features (TextTiling, content refactor, valence scoring, scrollytelling), Claude-reviewed all plans
 - PR #9 `refactor/markdown-content` — Extracted all narrative content from App.tsx into a markdown file with a Python parser, built a Vite plugin for content.md hot reload, unified annotation data shape across all charts
@@ -129,12 +156,26 @@ Story building and feedback time. Iterated on charts, wrote narrative content. F
 
 Ship and demo day! Switched from HBDscan to TextTiling for the final river charts, polished every chart, and [deployed on Vercel](https://goodbyefriend.vercel.app/). 
 
+3 min presentation again, very strict timing. We finished all demos within an hour. 
+
 - PR #11 `feat/valence` — Built emotional valence scoring pipeline for conversation segments using VADER sentiment analysis
 - PR #12 `scrolltell` — Prototype page combining TextTiling topic segmentation with emotional valence charts
 - PR #13 `demo` — Final polish: swapped all charts from HBDscan to TextTiling view, added SVG emotional valence on hover, built a general on-hover asides system for markdown content, renamed "User A/B" to "Friend #1/Friend #2", stripped HTML comments from prose parser, finalized the shadow profile chart
 - 4 commits on main — Deployed to Vercel: committed JSON data files for build, resolved TypeScript errors, added vercel.json config
 
 <br>
+
+### Day 35 - Sunday - Bonus Demo Day
+
+Skipped daily post ;(
+
+I was tempted to write a hot take about how real breakups are far worse than friend breakups, since the opposite has become a bit of a meme in recent cultural memory. But instead I spent the day at Fractal Tech (on my day off!) meeting new people and doing a [round two of the demo at Sidequest](https://demo.anything.cool/events/8c17de7b). 
+
+Round two went way better, partially because I got 4 minutes instead of 3, partially because I got good sleep, partially because spring is here at last...plus, I was just way more in my element. I had practiced once already, so I spoke much more fluidly. Cracked a lot more jokes off-the-cuff. I had made a silent New Year's Resolution to stop making self-deprecating jokes, but man, I just can't do this fucking "I'm the best" American poptimism. Spiritually I am British, which is a cucked thing to say as a Chinese person. 
+
+Anyways, I'm really glad I demo'd again because it helped me connect with tons of people in the crowd afterward. Daresay I've met some potential new friends to replace all the ones I've lost. :)
+
+Usually I'd put Sunday into the next week's blog post, but this one was a natural continuation. 
 
 ---
 
@@ -153,3 +194,4 @@ Braindump for what I can improve, other ideas etc
 - Python part would be relatively easier (extract Jupyter notebook functions)
 - Data viz is hard because every relationship story is different
 - Maybe this is the one I host on Raspberry Pi :)
+- Make it mobile friendly
