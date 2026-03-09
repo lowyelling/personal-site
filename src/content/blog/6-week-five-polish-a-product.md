@@ -3,15 +3,25 @@
   date: 2026-03-08
   description: "Polish something you know you can do"
 ---
-App link
 
-Gif
+On Monday last week, my former best friend of over a decade broke up with me. 
 
-I felt curious and then calm. Doing this project helped pull me out of the future of work/work identity crash out. 
+So naturally, I did the most tech bro thing imaginable and turned our message history into a [deployed data essay](https://goodbyefriend.vercel.app/). 
 
-Looking at it now that it's (mostly) done, there's a sense of peace and appreciation for what I think is a beautiful artifact. 
+<!--
+![Goodbye Friend GIF](/images/blog/GoodbyeFriend.gif)
 
-For others - I don't think about other people tbh when I share anything these days. But if someone sees it and can relate to it, that's great. Sometimes the super personal is how you get to the universal.
+-->
+
+<img src="/images/blog/GoodbyeFriend.gif" alt="Goodbye Friend GIF" width="600">
+
+I won't belabor the emotional experience of creating and then demo'ing this (twice), since this is meant to be more of a technical blog post. And I plan to write a real essay about it for my March post on Substack. So I'll just rephrase a [tweet I wrote](https://x.com/lowyelling/status/2030738392208871702) before getting to the meat and potatoes. 
+
+Last week, I was already crashing out over the future of work/an existential identity crisis. This project helped me feel curious again, and pulled me back into calm competence. Data analysis and visualization is in my wheelhouse; writing weird essays is in my wheelhouse. I hadn't combined them before, so this was my chance. Data analysis especially was never a zero-to-one experience. I was usually working with structured data (SQL) and using existing visualization tools and frameworks (PowerBI, R ~8 years ago). 
+
+When I look at the finished work, there's a sense of peace and appreciation for what I think is a beautiful artifact. There's no vulnerability hangover for me; maybe I got enough practice over the last year opining my bizarre takes, or maybe it's because I don't think about other people when I share things. If someone sees this and can relate to it, that's a bonus. 
+
+The personal is how you get to the universal.
 
 
 ## Reflection
@@ -60,7 +70,7 @@ Creating labs! These were real useful artifacts
 - **Exploratory Analysis:** Jupyter notebooks (8 notebooks: exploration → activity → embeddings → topics → bids → Gottman → TextTiling → valence), Plotly (notebook visualizations)
 - **Backend:** None (static site, all data pre-computed)
 - **Database:** None (static JSON pipeline)
-- **Testing:** Manual notebook-based validation
+- **Testing:** Manual notebook-based validation, checking outputs on localhost
 - **Dev Tooling:** ESLint, typescript-eslint, setuptools (Python packaging)
 - **Live Deployment:** Vercel
 - **System Diagrams:** Pen and paper
@@ -68,7 +78,7 @@ Creating labs! These were real useful artifacts
 ---
 ## Daily Logs
 
-My daily posts on Substack and Twitter are fully written by me. For the PR logs below, I let Claude Code read my git commit history and write the summaries, with me as the editor.
+My daily posts on Substack/Twitter and the daily summaries below are fully written by me. For the bulleted PR logs, I let Claude Code read my git commit history and write the summaries, with me as the editor.
 
 We had one system design lecture this week on [web crawling](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/system-design/web-crawler/web-crawler.md), which was excellent. I loved the topic and I enjoy system design lectures. Lecture was Wednesday the 4th, then we had two recitations on it Thurs and Sat. I called the diagram a [spider-looking thing](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/system-design/web-crawler/web-crawler.png?raw=true)
 
