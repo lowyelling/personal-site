@@ -3,21 +3,21 @@
   date: 2026-03-08
   description: "Polish something you know you can do"
 ---
+App link
+
+Gif
+
+I felt curious and then calm. Doing this project helped pull me out of the future of work/work identity crash out. 
+
+Looking at it now that it's (mostly) done, there's a sense of peace and appreciation for what I think is a beautiful artifact. 
+
+For others - I don't think about other people tbh when I share anything these days. But if someone sees it and can relate to it, that's great. Sometimes the super personal is how you get to the universal.
 
 
 ## Reflection
 
 
 
-### Learning about Learning
-- Week 4 = 42 conversations. ~$120 in Claude API costs
-
-
-### Key Concepts
--
-
-### Random
--
 
 
 ---
@@ -142,7 +142,14 @@ Ship and demo day! Switched from HBDscan to TextTiling for the final river chart
 Braindump for what I can improve, other ideas etc
 
 ### Near Term
-- 
+- Add signature - a "Made by lowyelling" somewhere
+- Make the on-hover sparkline charts much larger! They're tiny right now
+- Update verbiage; some of the sections (especially on hover) could use a second pass
+
 
 ### Long Term
--
+- Could this be a real product (or open source tool?) I don't want to be in charge of anyone's private/personal data, nor do I want to keep paying for an API key
+- But if I were to productize this in some day, it'd have to be two separate products: 1) Python analysis layer and 2) Data visualization layer
+- Python part would be relatively easier (extract Jupyter notebook functions)
+- Data viz is hard because every relationship story is different
+- Maybe this is the one I host on Raspberry Pi :)
