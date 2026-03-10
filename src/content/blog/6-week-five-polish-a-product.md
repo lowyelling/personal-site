@@ -30,18 +30,38 @@ I didn't set out to make a data story, which apparently is called scrollytelling
 
 In fact, I didn't set out to make any data visualizations. You have to look at the data first before you think about visualizations; I wasn't sure there'd be a story in the data worth visualizing. And I didn't think I'd go public with a Saturday demo until Thursday night. At Fractal Tech, our week five assignment was to scope down and polish a great product or tool to completion, ideally with user feedback. I was working on a Substack tool, which was enraging to research (details in the logs below if you want my anti-Substack rants). We're allowed to demo anything related to our experience though, so I was thinking of sharing something about managing crash-outs. But lo and behold, this data story emerged organically. 
 
-What I started with was an extraction of messages. I have a penchant towards data hoarding, so when anything ends, whether an online course or relationship, I'm saving that shit. So Monday went: got the last text, sent one last text back, exported data and media. 
+What I started with was an extraction of messages. I have a penchant towards data hoarding, so when anything ends, whether an online course or relationship, I'm saving that shit. So Monday went: got the last text, sent one last text back, exported data and media. 4,936 messages from 2022 to 2026. We had messages going back to probably 2016/17, but my former friend had lost access to accounts and ran a script to wipe out all historical messages, so I was left with only 2022+. 
 
 After other failed experiments, I returned to the data on Wednesday. What was in the data? Did the data match my memory? Were the signs of death always lurking there, unknown to us? 
 
-two algorithms asking different questions. HDBSCAN asks "which messages belong together?" (bottom-up); TextTiling asks "where did the conversation change?" (top-down). HDBSCAN got 20% coverage because casual DMs like "lol" embeds as nothing useful. TextTiling gets 100% coverage because short messages inherit context from their neighbors inside a sliding window. The key insight: conversation is sequential, and HDBSCAN throws away that order.  
+I was sure there'd be surprises, yet I was still surprised. 
 
-Creating labs! These were real useful artifacts 
-[latency](https://goodbyefriend.vercel.app/latency-lab.html)
-[latency ekg](https://goodbyefriend.vercel.app/latency-ekg.html)
-[stream chart](https://goodbyefriend.vercel.app/stream-lab.html)
-[valence](https://goodbyefriend.vercel.app/valence-lab.html)
+To start, I returned to what I was already familiar with: Jupyter notebooks. I'd learned to use them in my Masters program, hardly used them for a decade, then super-used them with the help of Claude two weeks ago for the [fine-tuning project](https://www.lowyelling.com/blog/5-week-four-do-the-impossible). Claude and I iterated through 6 notebooks: parsing and cleaning raw data, summary statistics and core metric exploration, clustering with HDBSCAN, classification of HDBSCAN clusters with Claude Haiku, classifying messages as turning toward / away / against bids for connection with Claude Haiku, and finally scoring conversations for the Gottman Four Horsemen (contempt, criticism, defensiveness, stonewalling). 
 
+My hypotheses went something like this: we'd be pretty evenly matched on volume of messages, expressiveness (emoji reactions), with a slight imbalance of message initiations from me (no higher than 60/40). I thought our topics of conversations probably narrowed over the years, but there wouldn't be any problematic Gottman findings (turning away from bids, contempt etc) until the very end. Not that there weren't any Gottman red flags in our friendship; if I had all the data from 2016+, I'm pretty sure Claude Haiku would've picked up on issues. But the time period after 2022 was relatively free of conflict. I thought most likely our friendship ended because we drifted apart, and that the final fight was the last straw.
+
+Aside from the Gottman hypothesis and the narrowing of topics, every other hypothesis was wrong. We had extreme imbalances across several metrics from the very start of the dataset, and our friendship didn't end due to drift. At least, not from the technical definition of drift. Drifting apart implies a sort of emotional neutrality, but our friendship was never neutral. It was an intense playground from start to finish. No matter how dark the topic, we could find humor in it. The problem was that the warm play bled out, leaving only the cold, venting negativity. This finding never would have happened without a conversation I had with a bootcamp friend, John. He suggested I look into "emotional valence", an unfamiliar term. I explored it with Claude, and we made a 7th notebook for valence. 
+
+The 8th and last notebook didn't flip any conclusions, but it changed the way I perceived the river diagram. The river, or streamgraph, represents the breadth and volume of topics we discussed. With HBDSCAN clustering, about 80% of our ~5K messages were thrown out because they were seen as noise/couldn't be categorized into a topic. Makes sense, because casual DMs like "lol" embeds as nothing useful. But I was worried that there was real signal in the missing 80%, so further discussion with Claude lead to TextTiling. Unlike HBDSCAN, which treats each message as a separate entity and throws out any timing/order, TextTiling treats messages sequentially, the way conversations naturally flow. Even short "lols" inherit context from neighboring messages within a sliding window. So the last notebook was TextTiling, because I wanted 100% coverage. 
+
+Turns out both algorithms drew the same river shape. Compare the TextTiling version I deployed to the HBDSCAN [the 4th prototype](https://goodbyefriend.vercel.app/stream-lab.html) - practically identical. I kept TextTiling because the width of the river is more accurate to actual volume, but the key insight here is that bottom-up (HBDSCAN) and top-down (TextTiling) algorithms reached the same shape. This convergence means that our friendship really did narrow.  
+
+Once I reviewed the Jupyter notebook outputs, I could spin up data visualizations. The only one I knew for sure I wanted was the Github activity/heatmap. The rest, I asked Claude to help me draw out a bunch of different prototypes with separate HTML pages we called labs: 
+- [latency](https://goodbyefriend.vercel.app/latency-lab.html)
+- [latency ekg](https://goodbyefriend.vercel.app/latency-ekg.html)
+- [stream chart](https://goodbyefriend.vercel.app/stream-lab.html)
+- [valence](https://goodbyefriend.vercel.app/valence-lab.html)
+
+I worked with Claude on what charts to cut, combine, redo, restyle etc. Sometimes Claude's original chart was better than what I envisioned. Sometimes Claude would forget to keep styling cohesive across the document. The best refactor I thought of was to separate the essayistic parts from the charts, so that all I needed to do to update words was to revise a markdown file instead of hunting down various JSX elements. This refactor also lead to the on-hover idea; in essay writing, I have a tendency towards footnotes because I like asides too much. And Claude made some nice charts that shouldn't go totally to waste! So I had Claude enable {{ }} syntax in the markdown file so that we could insert full charts as on-hover footnotes. 
+
+I'll end with the on-hover trick as a metaphor for the finale: what was hidden in plain sight? In other words, what could the data NOT see? 
+
+Well, the data can't see what we withheld from each other. The data pipeline can't encode what never existed; only I can fill in the gaps, and only from my side. The river of topics narrowed, but the data can't tell you why. Only I can. 
+
+Or maybe I should just ask Palantir. They probably knew my friendship was going to die years before it really did. 
+
+---
+<br>
 
 ### Learning about Learning
 - Week 5 = 38 conversations. ~$151 in Claude API costs
