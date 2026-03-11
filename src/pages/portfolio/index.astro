@@ -118,8 +118,28 @@ const writingQuotes = [
     }, interval);
   }
 
+  function initQuoteshow(id: string) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const slides = el.querySelectorAll('.quote');
+    let current = 0;
+
+    function next() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+      const len = (slides[current].textContent || '').length;
+      const delay = len > 120 ? 5000 : len > 60 ? 4000 : 3000;
+      setTimeout(next, delay);
+    }
+
+    const len = (slides[current].textContent || '').length;
+    const initialDelay = len > 120 ? 5000 : len > 60 ? 4000 : 3000;
+    setTimeout(next, initialDelay);
+  }
+
   initSlideshow('art-slideshow', 2500);
-  initSlideshow('writing-quotes', 4000);
+  initQuoteshow('writing-quotes');
 </script>
 
 <style>
