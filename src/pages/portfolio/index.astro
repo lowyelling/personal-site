@@ -9,11 +9,41 @@ const artImages = (artOrder as ArtEntry[]).slice(0, 8).map((e) => ({
   cropY: e.cropY,
 }));
 
-const writingImages = [
-  "/images/writing/Magritte.jpg",
-  "/images/writing/CharlieKirk.webp",
-  "/images/writing/AI_meme.jpg",
-  "/images/writing/Ellul.webp",
+const writingQuotes = [
+  "A hedge fund trader taught me how to love. I had no idea what a wretched thing I was, until I met him.",
+  "His mind was a perfect terror, a Turing machine that drew derivatives from mere memory.",
+  "Or maybe Orpheus wanted to look. He wanted the memory over the living reality, and made the poet’s choice, not the lover’s.",
+  "Our love was also a three-body problem. Our histories, our creations, and our distance. Lover, beloved, and the distance between us.",
+  "The past is Newtonian. Deterministic, linear, bound by rules—like memory’s fixation, like old love that keeps repeating in your mind.",
+  "The future is quantum. Probability, uncertainty, entanglement—the unknowable state until observed, until you choose the path.",
+  "The present is relativity. Time dilates, mass shifts, meaning warps—relativity introduces perspective, a frame of reference.",
+  "The market is a Lovecraftian horror that punishes and rewards with unfeeling caprice. I’m just a fly caught in its web. But daily he walks willingly into its maw.",
+  "So I flung him back out into the stars, into the dark forest. Watched him touch escape velocity, where I cannot reach him.",
+  "After him, I know that writing is the truest form of love. Writing is the ice in my hand that never melts.",
+  "It is the only place where holding on and letting go weave the same thread, the one planet whose three suns spin in a stable orbit, the closest thing I have to a theory of everything.",
+  "I daresay Charlie Kirk, dead, is even riper for the picking than Charlie Kirk, alive.",
+  "The algorithm is the greatest propagandist of all, a mechanical black priest with a singular virtue: attention.",
+  "Charlie, with a whole wife and two kids and a sprawling conservative empire. Charlie, eternally 31.",
+  "I can almost see Him touch her hand, closing that excruciating, infinite gap to forgiveness. Forgiveness!",
+  "Could the perfect form of propaganda … look like forgiveness?",
+  "Maybe it’s just impossible to mourn a living wound. It feels so much easier to try and love Charlie, to forgive the fantasy of a dead man for his abstract harms against me.",
+  "And so I end with a twist on an old prayer: Charlie Kirk, rest in future.",
+  "The software engineer is their own bottleneck now. AI is a coordination problem; the work (code) is a mere byproduct of coordination.",
+  "Claude today, the worst that it will ever be, already can deliver.",
+  "So which one is AI, substitute or complement?",
+  "Back to wrangling atoms, since not even AI can bend the speed of light.",
+  "As products are commoditized, the value moves up to the coordination layer above.",
+  "The middle is the substitute being wiped out. Standard software engineering like webapps, what most people think of when they hear “tech”—that’s dying.",
+  "What’s happening to software engineering right now will happen to almost every white-collar corporate job over the next few years.",
+  "As quartz solved the problem of accuracy, AI is solving the problem of work.",
+  "Those skills at the top layer? Vision, taste, knowing what’s worth building….those are the humanities.",
+  "If you care about beauty, the process, the craft, whatever makes you come alive, that there will always be space for you.",
+  "Where efficiency lives, responsibility dies.",
+  "But modernity, which has profaned and desacralized the natural world and God, has elevated technique to the sacred instead.",
+  "Everyone responds to their task, and no one is responsible for the whole.",
+  "Technology is empowering and enslaving; propaganda is necessary and destructive; violence is natural and unacceptable.",
+  "I worry that I am spreading propaganda, as I did in the past.",
+
 ];
 ---
 
@@ -59,14 +89,11 @@ const writingImages = [
     </a>
 
     <a href="/portfolio/writing" class="portfolio-card writing-card">
-      <div class="card-preview writing-slideshow" id="writing-slideshow">
-        {writingImages.map((src, i) => (
-          <img
-            src={src}
-            alt=""
-            class:list={["slide", { active: i === 0 }]}
-            loading="lazy"
-          />
+      <div class="card-preview writing-quotes" id="writing-quotes">
+        {writingQuotes.map((quote, i) => (
+          <p class:list={["quote", { active: i === 0 }]}>
+            {quote || "Quote goes here..."}
+          </p>
         ))}
       </div>
       <div class="card-label">
@@ -82,7 +109,7 @@ const writingImages = [
   function initSlideshow(id: string, interval: number) {
     const el = document.getElementById(id);
     if (!el) return;
-    const slides = el.querySelectorAll('.slide');
+    const slides = el.querySelectorAll('.slide, .quote');
     let current = 0;
     setInterval(() => {
       slides[current].classList.remove('active');
@@ -92,7 +119,7 @@ const writingImages = [
   }
 
   initSlideshow('art-slideshow', 2500);
-  initSlideshow('writing-slideshow', 3000);
+  initSlideshow('writing-quotes', 4000);
 </script>
 
 <style>
@@ -185,22 +212,33 @@ const writingImages = [
   .code-str { color: #c3e88d; }
   .code-fn { color: #82aaff; }
 
-  /* Writing slideshow */
-  .writing-slideshow {
+  /* Writing quotes */
+  .writing-quotes {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
   }
 
-  .writing-slideshow .slide {
+  .writing-quotes .quote {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-md);
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    text-align: center;
+    margin: 0;
     opacity: 0;
     transition: opacity 1s ease;
   }
 
-  .writing-slideshow .slide.active {
+  .writing-quotes .quote.active {
     opacity: 1;
   }
 
