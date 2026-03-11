@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allUpdates = await getCollection('now');
+const sorted = allUpdates.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+// Skip the latest (that's the main /now page), show the rest
+const previous = sorted.slice(1);
+---
+
+<BaseLayout title="Now Archive" description="Previous now page updates">
+  <p><a href="/now">&larr; Now</a></p>
+
+  <h1>Now Archive</h1>
+  <p class="text-muted">Previous updates.</p>
+
+  {previous.length === 0 && (
+    <p class="text-muted mt-lg">No previous updates yet.</p>
+  )}
+
+  <ul class="archive-list mt-lg">
+    {previous.map((entry) => (
+      <li>
+        <a href={`/now/${entry.id}`}>
+          {entry.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
+        </a>
+      </li>
+    ))}
+  </ul>
+</BaseLayout>
+
+<style>
+  .archive-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .archive-list li {
+    margin-bottom: var(--spacing-sm);
+  }
+</style>
