@@ -3,39 +3,38 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const essays = [
   {
-    title: "",
-    url: "https://lowyelling.substack.com/",
-    description: "",
+    title: "What AI is really doing to work",
+    url: "https://furniturecoins.substack.com/p/what-ai-is-really-doing-to-work",
+    description: "A white/black-pilled view on white-collar work",
+    image: "/images/writing/AI_meme.jpg",
     tag: "Substack",
   },
   {
     title: "",
     url: "https://lowyelling.substack.com/",
     description: "",
+    image: "",
     tag: "Substack",
   },
   {
     title: "",
     url: "https://lowyelling.substack.com/",
     description: "",
+    image: "",
     tag: "Substack",
   },
   {
     title: "",
     url: "https://lowyelling.substack.com/",
     description: "",
+    image: "",
     tag: "Substack",
   },
   {
     title: "",
     url: "https://lowyelling.substack.com/",
     description: "",
-    tag: "Substack",
-  },
-  {
-    title: "",
-    url: "https://lowyelling.substack.com/",
-    description: "",
+    image: "",
     tag: "Substack",
   },
 ];
@@ -45,16 +44,19 @@ const essays = [
   <p><a href="/portfolio">&larr; Portfolio</a></p>
 
   <h1>Writing</h1>
-  <p class="text-muted">Selected essays. Published on <a href="https://lowyelling.substack.com" target="_blank" rel="noopener">Furniture Coins</a>.</p>
+  <p class="text-muted">Selected works. Published on <a href="https://lowyelling.substack.com" target="_blank" rel="noopener">Furniture Coins</a>.</p>
 
   <div class="essays mt-lg">
-    {essays.map(({ title, url, description, tag }) => (
-      <a href={url} target="_blank" rel="noopener" class="essay-card">
-        <div class="essay-content">
-          <h2>{title || "Essay Title"}</h2>
-          <p class="essay-desc">{description || "Short description goes here."}</p>
+    {essays.map(({ title, url, description, image, tag }) => (
+      <a href={url} target="_blank" rel="noopener" class:list={["essay-card", { "has-image": !!image }]}>
+        {image && <img src={image} alt="" class="essay-image" loading="lazy" />}
+        <div class="essay-body">
+          <div class="essay-content">
+            <h2>{title || "Essay Title"}</h2>
+            <p class="essay-desc">{description || "Short description goes here."}</p>
+          </div>
+          <span class="essay-tag">{tag}</span>
         </div>
-        <span class="essay-tag">{tag}</span>
       </a>
     ))}
   </div>
@@ -69,13 +71,11 @@ const essays = [
 
   .essay-card {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--spacing-md);
-    padding: var(--spacing-lg);
+    flex-direction: column;
     background: var(--color-bg-subtle);
     border: 1px solid var(--color-border);
     border-radius: 8px;
+    overflow: hidden;
     transition: all 0.2s ease;
   }
 
@@ -84,6 +84,20 @@ const essays = [
     text-decoration: none;
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .essay-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .essay-body {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
   }
 
   .essay-content {
