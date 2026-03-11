@@ -67,7 +67,7 @@ const writingQuotes = [
       </div>
       <div class="card-label">
         <h2>Art</h2>
-        <p>Paintings and visual experiments</p>
+        <p>Selected visuals</p>
       </div>
     </a>
 
@@ -84,21 +84,21 @@ const writingQuotes = [
       </div>
       <div class="card-label">
         <h2>Dev</h2>
-        <p>Software projects and code</p>
+        <p>Software projects</p>
       </div>
     </a>
 
     <a href="/portfolio/writing" class="portfolio-card writing-card">
       <div class="card-preview writing-quotes" id="writing-quotes">
         {writingQuotes.map((quote, i) => (
-          <p class:list={["quote", { active: i === 0 }]}>
+          <p class:list={["wq-item", { active: i === 0 }]}>
             {quote || "Quote goes here..."}
           </p>
         ))}
       </div>
       <div class="card-label">
         <h2>Writing</h2>
-        <p>Selected works and essays</p>
+        <p>Selected works</p>
       </div>
     </a>
 
@@ -109,7 +109,7 @@ const writingQuotes = [
   function initSlideshow(id: string, interval: number) {
     const el = document.getElementById(id);
     if (!el) return;
-    const slides = el.querySelectorAll('.slide, .quote');
+    const slides = el.querySelectorAll('.slide, .wq-item');
     let current = 0;
     setInterval(() => {
       slides[current].classList.remove('active');
@@ -121,7 +121,7 @@ const writingQuotes = [
   function initQuoteshow(id: string) {
     const el = document.getElementById(id);
     if (!el) return;
-    const slides = el.querySelectorAll('.quote');
+    const slides = el.querySelectorAll('.wq-item');
     let current = 0;
 
     function next() {
@@ -241,7 +241,7 @@ const writingQuotes = [
     padding: var(--spacing-lg);
   }
 
-  .writing-quotes .quote {
+  .writing-quotes .wq-item {
     position: absolute;
     inset: 0;
     display: flex;
@@ -258,7 +258,7 @@ const writingQuotes = [
     transition: opacity 1s ease;
   }
 
-  .writing-quotes .quote.active {
+  .writing-quotes .wq-item.active {
     opacity: 1;
   }
 

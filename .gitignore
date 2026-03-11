@@ -25,5 +25,11 @@ Thumbs.db
 # Vercel
 .vercel/
 
+# Claude
+.claude/
+
+# GitHub
+.github/
+
 # Private
-public/resume.pdf
+public/resume

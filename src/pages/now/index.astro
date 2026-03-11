@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+const allUpdates = await getCollection('now');
+const sorted = allUpdates.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const latest = sorted[0];
+const previous = sorted.slice(1);
+const { Content } = await render(latest);
+---
+
+<BaseLayout title="Now" description="What I'm doing now">
+  <h1>Now</h1>
+  <p class="text-muted">
+    This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>.
+    <i>Updated: {latest.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</i>
+  </p>
+
+  <div class="now-content mt-lg">
+    <Content />
+  </div>
+
+  {previous.length > 0 && (
+    <section class="archive-link mt-lg">
+      <a href="/now/archive">Previous updates &rarr;</a>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .now-content :global(h2) {
+    margin-top: var(--spacing-lg);
+  }
+
+  .now-content :global(ul) {
+    padding-left: var(--spacing-lg);
+  }
+
+  .now-content :global(li) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .now-content :global(p) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .archive-link {
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+  }
+</style>
