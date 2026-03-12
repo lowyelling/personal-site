@@ -37,7 +37,7 @@ const isDev = import.meta.env.DEV;
       <button id="toggle-edit" class="edit-btn">Reorder</button>
       <button id="toggle-rows" class="edit-btn">Reorder rows</button>
       <button id="toggle-crop" class="edit-btn">Adjust crops</button>
-      <button id="save-order" class="edit-btn save-btn" style="display:none">Save</button>
+      <button id="save-order" class="edit-btn save-btn" style="display:none">Save &amp; Done</button>
       <span id="save-status" class="save-status"></span>
     </div>
   )}
@@ -132,6 +132,33 @@ const isDev = import.meta.env.DEV;
     getRowItems(item).forEach((el) => el.classList.toggle('row-highlight', add));
   }
 
+  async function saveOrder(): Promise<boolean> {
+    const order = [...gallery.querySelectorAll('.gallery-item')].map((fig) => {
+      const el = fig as HTMLElement;
+      return {
+        file: el.dataset.filename!,
+        cropX: parseInt(el.dataset.cropX!, 10),
+        cropY: parseInt(el.dataset.cropY!, 10),
+      };
+    });
+
+    saveStatus!.textContent = 'Saving...';
+    try {
+      const res = await fetch('/api/save-art-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+      });
+      saveStatus!.textContent = res.ok ? 'Saved!' : 'Error saving';
+      setTimeout(() => { saveStatus!.textContent = ''; }, 2000);
+      return res.ok;
+    } catch {
+      saveStatus!.textContent = 'Error saving';
+      setTimeout(() => { saveStatus!.textContent = ''; }, 2000);
+      return false;
+    }
+  }
+
   function setEditMode(mode: EditMode) {
     // Clear row highlights from previous mode
     gallery.querySelectorAll('.row-highlight').forEach((el) => el.classList.remove('row-highlight'));
@@ -140,18 +167,9 @@ const isDev = import.meta.env.DEV;
     gallery.classList.remove('reorder-mode', 'rows-mode', 'crop-mode');
     if (mode !== 'none') gallery.classList.add(`${mode}-mode`);
 
-    if (toggleReorderBtn) {
-      toggleReorderBtn.textContent = mode === 'reorder' ? 'Done' : 'Reorder';
-      toggleReorderBtn.classList.toggle('active-btn', mode === 'reorder');
-    }
-    if (toggleRowsBtn) {
-      toggleRowsBtn.textContent = mode === 'rows' ? 'Done' : 'Reorder rows';
-      toggleRowsBtn.classList.toggle('active-btn', mode === 'rows');
-    }
-    if (toggleCropBtn) {
-      toggleCropBtn.textContent = mode === 'crop' ? 'Done' : 'Adjust crops';
-      toggleCropBtn.classList.toggle('active-btn', mode === 'crop');
-    }
+    if (toggleReorderBtn) toggleReorderBtn.classList.toggle('active-btn', mode === 'reorder');
+    if (toggleRowsBtn) toggleRowsBtn.classList.toggle('active-btn', mode === 'rows');
+    if (toggleCropBtn) toggleCropBtn.classList.toggle('active-btn', mode === 'crop');
     if (saveBtn) saveBtn.style.display = mode !== 'none' ? 'inline-block' : 'none';
 
     gallery.querySelectorAll('.gallery-item').forEach((fig) => {
@@ -307,29 +325,10 @@ const isDev = import.meta.env.DEV;
     panTarget = null;
   });
 
-  // --- Save ---
+  // --- Save & Done ---
   saveBtn?.addEventListener('click', async () => {
-    const order = [...gallery.querySelectorAll('.gallery-item')].map((fig) => {
-      const el = fig as HTMLElement;
-      return {
-        file: el.dataset.filename!,
-        cropX: parseInt(el.dataset.cropX!, 10),
-        cropY: parseInt(el.dataset.cropY!, 10),
-      };
-    });
-
-    saveStatus!.textContent = 'Saving...';
-    try {
-      const res = await fetch('/api/save-art-order', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(order),
-      });
-      saveStatus!.textContent = res.ok ? 'Saved!' : 'Error saving';
-    } catch {
-      saveStatus!.textContent = 'Error saving';
-    }
-    setTimeout(() => { saveStatus!.textContent = ''; }, 2000);
+    await saveOrder();
+    setEditMode('none');
   });
 </script>
 

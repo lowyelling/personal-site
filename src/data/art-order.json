@@ -20,19 +20,19 @@
     "cropY": 50
   },
   {
-    "file": "Chaos Theory.jpg",
-    "cropX": 46,
-    "cropY": 80
-  },
-  {
     "file": "Camille Pissaro Study.jpg",
     "cropX": 97,
     "cropY": 51
   },
   {
-    "file": "Optimism.png",
-    "cropX": 50,
-    "cropY": 0
+    "file": "Sunflowers Monet.jpg",
+    "cropX": 69,
+    "cropY": 50
+  },
+  {
+    "file": "Waterlilies Monet.jpg",
+    "cropX": 67,
+    "cropY": 30
   },
   {
     "file": "Heading South.png",
@@ -45,9 +45,14 @@
     "cropY": 50
   },
   {
-    "file": "Reverie.jpg",
-    "cropX": 60,
-    "cropY": 55
+    "file": "Optimism.png",
+    "cropX": 50,
+    "cropY": 0
+  },
+  {
+    "file": "Chaos Theory.jpg",
+    "cropX": 46,
+    "cropY": 80
   },
   {
     "file": "GM GN.png",
@@ -55,19 +60,14 @@
     "cropY": 50
   },
   {
+    "file": "Reverie.jpg",
+    "cropX": 60,
+    "cropY": 55
+  },
+  {
     "file": "Pink Dunes.png",
     "cropX": 0,
     "cropY": 59
-  },
-  {
-    "file": "Sunflowers Monet.jpg",
-    "cropX": 69,
-    "cropY": 50
-  },
-  {
-    "file": "Waterlilies Monet.jpg",
-    "cropX": 67,
-    "cropY": 30
   },
   {
     "file": "Doodle 4 Google.jpg",
@@ -100,17 +100,12 @@
     "cropY": 32
   },
   {
-    "file": "American Psycho.png",
-    "cropX": 50,
-    "cropY": 50
-  },
-  {
     "file": "Mads Mikkelsen.png",
     "cropX": 50,
     "cropY": 50
   },
   {
-    "file": "Will Hannibal study.png",
+    "file": "American Psycho.png",
     "cropX": 50,
     "cropY": 50
   },
@@ -118,6 +113,11 @@
     "file": "Clarice and Hannibal.jpg",
     "cropX": 42,
     "cropY": 46
+  },
+  {
+    "file": "Will Hannibal study.png",
+    "cropX": 50,
+    "cropY": 50
   },
   {
     "file": "Edward Hopper study.png",
