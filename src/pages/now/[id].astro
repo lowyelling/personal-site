@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allUpdates = await getCollection('now');
+  return allUpdates.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const dateStr = entry.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
+---
+
+<BaseLayout title={`Now - ${dateStr}`} description={`What I was doing in ${dateStr}`}>
+  <p><a href="/now">&larr; Now</a></p>
+
+  <h1>{dateStr}</h1>
+  <p class="text-muted">
+    <i>Updated: {entry.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</i>
+  </p>
+
+  <div class="now-content mt-lg">
+    <Content />
+  </div>
+</BaseLayout>
+
+<style>
+  .now-content :global(h2) {
+    margin-top: var(--spacing-lg);
+  }
+
+  .now-content :global(ul) {
+    padding-left: var(--spacing-lg);
+  }
+
+  .now-content :global(li) {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .now-content :global(p) {
+    margin-bottom: var(--spacing-sm);
+  }
+</style>

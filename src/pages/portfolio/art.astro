@@ -1,48 +1,503 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import artOrder from '../../data/art-order.json';
+
+interface ArtEntry { file: string; cropX: number; cropY: number }
+
+const allImages = Object.entries(import.meta.glob<{ default: ImageMetadata }>(
+  '/public/images/artportfolio/*.{jpg,jpeg,png,webp}',
+  { eager: true }
+)).map(([path, _mod]) => {
+  const filename = path.split('/').pop()!;
+  const name = filename.replace(/\.[^.]+$/, '');
+  return { filename, src: `/images/artportfolio/${filename}`, title: name };
+});
+
+const orderMap = new Map((artOrder as ArtEntry[]).map((e, i) => [e.file, { index: i, cropX: e.cropX, cropY: e.cropY }]));
+const images = [...allImages].sort((a, b) => {
+  const ai = orderMap.get(a.filename)?.index ?? 999;
+  const bi = orderMap.get(b.filename)?.index ?? 999;
+  return ai - bi;
+}).map((img) => {
+  const entry = orderMap.get(img.filename);
+  return { ...img, cropX: entry?.cropX ?? 50, cropY: entry?.cropY ?? 50 };
+});
+
+const isDev = import.meta.env.DEV;
 ---
 
-<BaseLayout title="Art Portfolio" description="Visual work">
+<BaseLayout title="Art Portfolio" description="Paintings and visual work by Lily">
   <p><a href="/portfolio">&larr; Portfolio</a></p>
 
   <h1>Art</h1>
-  <p class="text-muted">Visual work and experiments.</p>
+  <p class="text-muted">My art has been commissioned, published, sold as NFTs, and featured in an art gallery.</p>
 
-  <section class="mt-lg">
-    <p class="text-muted">Coming soon...</p>
-
-    <!--
-    Gallery layout for when you add images:
-    <div class="gallery">
-      <figure>
-        <img src="/art/piece1.jpg" alt="Description" />
-        <figcaption>Title, Year</figcaption>
-      </figure>
+  {isDev && (
+    <div class="edit-controls" id="edit-controls">
+      <button id="toggle-edit" class="edit-btn">Reorder</button>
+      <button id="toggle-rows" class="edit-btn">Reorder rows</button>
+      <button id="toggle-crop" class="edit-btn">Adjust crops</button>
+      <button id="save-order" class="edit-btn save-btn" style="display:none">Save</button>
+      <span id="save-status" class="save-status"></span>
     </div>
-    -->
-  </section>
+  )}
+
+  <div class="gallery" id="gallery">
+    {images.map(({ src, title, filename, cropX, cropY }) => (
+      <figure
+        class="gallery-item"
+        data-src={src}
+        data-title={title}
+        data-filename={filename}
+        data-crop-x={cropX}
+        data-crop-y={cropY}
+      >
+        <img
+          src={src}
+          alt={title}
+          loading="lazy"
+          style={`object-position: ${cropX}% ${cropY}%`}
+        />
+      </figure>
+    ))}
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="" />
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+  </div>
 </BaseLayout>
 
+<script>
+  const lightbox = document.getElementById('lightbox')!;
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxCaption = document.getElementById('lightbox-caption')!;
+  const gallery = document.getElementById('gallery')!;
+
+  type EditMode = 'none' | 'reorder' | 'rows' | 'crop';
+  let editMode: EditMode = 'none';
+  let draggedEl: HTMLElement | null = null;
+  let draggedRowEls: HTMLElement[] = [];
+  const COLS = 4;
+
+  // --- Lightbox ---
+  function openLightbox(fig: HTMLElement) {
+    if (editMode !== 'none') return;
+    lightboxImg.src = fig.dataset.src!;
+    lightboxImg.alt = fig.dataset.title!;
+    lightboxCaption.textContent = fig.dataset.title!;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  gallery.addEventListener('click', (e) => {
+    if (editMode !== 'none') return;
+    const fig = (e.target as HTMLElement).closest('.gallery-item') as HTMLElement;
+    if (fig) openLightbox(fig);
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox || (e.target as HTMLElement).id === 'lightbox-close') {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  let selectedRow: HTMLElement[] = [];
+
+  // --- Edit mode controls ---
+  const toggleReorderBtn = document.getElementById('toggle-edit');
+  const toggleRowsBtn = document.getElementById('toggle-rows');
+  const toggleCropBtn = document.getElementById('toggle-crop');
+  const saveBtn = document.getElementById('save-order');
+  const saveStatus = document.getElementById('save-status');
+
+  function getRowItems(item: HTMLElement): HTMLElement[] {
+    const items = [...gallery.querySelectorAll('.gallery-item')] as HTMLElement[];
+    const idx = items.indexOf(item);
+    const rowStart = Math.floor(idx / COLS) * COLS;
+    return items.slice(rowStart, rowStart + COLS);
+  }
+
+  function highlightRow(item: HTMLElement | null, add: boolean) {
+    if (!item) return;
+    getRowItems(item).forEach((el) => el.classList.toggle('row-highlight', add));
+  }
+
+  function setEditMode(mode: EditMode) {
+    // Clear row highlights from previous mode
+    gallery.querySelectorAll('.row-highlight').forEach((el) => el.classList.remove('row-highlight'));
+
+    editMode = mode;
+    gallery.classList.remove('reorder-mode', 'rows-mode', 'crop-mode');
+    if (mode !== 'none') gallery.classList.add(`${mode}-mode`);
+
+    if (toggleReorderBtn) {
+      toggleReorderBtn.textContent = mode === 'reorder' ? 'Done' : 'Reorder';
+      toggleReorderBtn.classList.toggle('active-btn', mode === 'reorder');
+    }
+    if (toggleRowsBtn) {
+      toggleRowsBtn.textContent = mode === 'rows' ? 'Done' : 'Reorder rows';
+      toggleRowsBtn.classList.toggle('active-btn', mode === 'rows');
+    }
+    if (toggleCropBtn) {
+      toggleCropBtn.textContent = mode === 'crop' ? 'Done' : 'Adjust crops';
+      toggleCropBtn.classList.toggle('active-btn', mode === 'crop');
+    }
+    if (saveBtn) saveBtn.style.display = mode !== 'none' ? 'inline-block' : 'none';
+
+    gallery.querySelectorAll('.gallery-item').forEach((fig) => {
+      (fig as HTMLElement).draggable = mode === 'reorder';
+    });
+
+    // Clear row selection when leaving rows mode
+    if (mode !== 'rows') {
+      selectedRow.forEach((el) => el.classList.remove('row-selected'));
+      selectedRow = [];
+    }
+  }
+
+  toggleReorderBtn?.addEventListener('click', () => {
+    setEditMode(editMode === 'reorder' ? 'none' : 'reorder');
+  });
+
+  toggleRowsBtn?.addEventListener('click', () => {
+    setEditMode(editMode === 'rows' ? 'none' : 'rows');
+  });
+
+  toggleCropBtn?.addEventListener('click', () => {
+    setEditMode(editMode === 'crop' ? 'none' : 'crop');
+  });
+
+  // --- Drag-and-drop reorder ---
+  gallery.addEventListener('dragstart', (e) => {
+    draggedEl = (e.target as HTMLElement).closest('.gallery-item') as HTMLElement;
+    if (!draggedEl) return;
+    e.dataTransfer!.effectAllowed = 'move';
+    draggedEl.classList.add('dragging');
+  });
+
+  gallery.addEventListener('dragend', () => {
+    if (draggedEl) draggedEl.classList.remove('dragging');
+    draggedEl = null;
+  });
+
+  gallery.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    e.dataTransfer!.dropEffect = 'move';
+    const target = (e.target as HTMLElement).closest('.gallery-item') as HTMLElement;
+    if (!target || !draggedEl || target === draggedEl) return;
+    const items = [...gallery.querySelectorAll('.gallery-item')];
+    const dragIdx = items.indexOf(draggedEl);
+    const targetIdx = items.indexOf(target);
+    if (dragIdx < targetIdx) {
+      target.after(draggedEl);
+    } else {
+      target.before(draggedEl);
+    }
+  });
+
+  // --- Row click-to-swap ---
+
+  gallery.addEventListener('click', (e) => {
+    if (editMode !== 'rows') return;
+    const fig = (e.target as HTMLElement).closest('.gallery-item') as HTMLElement;
+    if (!fig) return;
+
+    const clickedRow = getRowItems(fig);
+
+    if (selectedRow.length === 0) {
+      // First click: select this row
+      selectedRow = clickedRow;
+      selectedRow.forEach((el) => el.classList.add('row-selected'));
+    } else {
+      // Second click: swap rows
+      if (clickedRow.every((el) => selectedRow.includes(el))) {
+        // Clicked same row — deselect
+        selectedRow.forEach((el) => el.classList.remove('row-selected'));
+        selectedRow = [];
+        return;
+      }
+
+      const items = [...gallery.querySelectorAll('.gallery-item')] as HTMLElement[];
+      const srcStart = items.indexOf(selectedRow[0]);
+      const destStart = items.indexOf(clickedRow[0]);
+
+      // Create placeholder markers for the swap
+      const srcMarker = document.createElement('span');
+      const destMarker = document.createElement('span');
+      selectedRow[0].before(srcMarker);
+      clickedRow[0].before(destMarker);
+
+      // Move selected row to dest position
+      clickedRow.forEach((el) => srcMarker.before(el));
+      selectedRow.forEach((el) => destMarker.before(el));
+
+      // Clean up markers
+      srcMarker.remove();
+      destMarker.remove();
+
+      // Clear selection
+      selectedRow.forEach((el) => el.classList.remove('row-selected'));
+      selectedRow = [];
+    }
+  });
+
+  // Row hover highlighting
+  gallery.addEventListener('mouseover', (e) => {
+    if (editMode !== 'rows') return;
+    const fig = (e.target as HTMLElement).closest('.gallery-item') as HTMLElement;
+    if (fig) highlightRow(fig, true);
+  });
+
+  gallery.addEventListener('mouseout', (e) => {
+    if (editMode !== 'rows') return;
+    const fig = (e.target as HTMLElement).closest('.gallery-item') as HTMLElement;
+    if (fig) highlightRow(fig, false);
+  });
+
+  // --- Crop panning ---
+  let panTarget: HTMLElement | null = null;
+  let panStartX = 0;
+  let panStartY = 0;
+  let panStartCropX = 0;
+  let panStartCropY = 0;
+
+  gallery.addEventListener('mousedown', (e) => {
+    if (editMode !== 'crop') return;
+    const fig = (e.target as HTMLElement).closest('.gallery-item') as HTMLElement;
+    if (!fig) return;
+    e.preventDefault();
+    panTarget = fig;
+    panStartX = e.clientX;
+    panStartY = e.clientY;
+    panStartCropX = parseFloat(fig.dataset.cropX!);
+    panStartCropY = parseFloat(fig.dataset.cropY!);
+    fig.classList.add('panning');
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!panTarget) return;
+    const img = panTarget.querySelector('img') as HTMLImageElement;
+    const rect = panTarget.getBoundingClientRect();
+
+    // Map pixel drag to % shift — scale by image vs container size ratio
+    const dx = e.clientX - panStartX;
+    const dy = e.clientY - panStartY;
+    const sensitivity = 100 / rect.width;
+
+    const newX = Math.max(0, Math.min(100, panStartCropX - dx * sensitivity));
+    const newY = Math.max(0, Math.min(100, panStartCropY - dy * sensitivity));
+
+    panTarget.dataset.cropX = String(Math.round(newX));
+    panTarget.dataset.cropY = String(Math.round(newY));
+    img.style.objectPosition = `${newX}% ${newY}%`;
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (panTarget) panTarget.classList.remove('panning');
+    panTarget = null;
+  });
+
+  // --- Save ---
+  saveBtn?.addEventListener('click', async () => {
+    const order = [...gallery.querySelectorAll('.gallery-item')].map((fig) => {
+      const el = fig as HTMLElement;
+      return {
+        file: el.dataset.filename!,
+        cropX: parseInt(el.dataset.cropX!, 10),
+        cropY: parseInt(el.dataset.cropY!, 10),
+      };
+    });
+
+    saveStatus!.textContent = 'Saving...';
+    try {
+      const res = await fetch('/api/save-art-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(order),
+      });
+      saveStatus!.textContent = res.ok ? 'Saved!' : 'Error saving';
+    } catch {
+      saveStatus!.textContent = 'Error saving';
+    }
+    setTimeout(() => { saveStatus!.textContent = ''; }, 2000);
+  });
+</script>
+
 <style>
+  :global(main) {
+    max-width: 1100px !important;
+  }
+
+  .edit-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+
+  .edit-btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    background: var(--color-bg-subtle);
+    color: var(--color-text);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s ease;
+  }
+
+  .edit-btn:hover {
+    background: var(--color-border);
+  }
+
+  .edit-btn.active-btn {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+  }
+
+  .save-btn {
+    background: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+  }
+
+  .save-btn:hover {
+    background: var(--color-accent-hover);
+  }
+
+  .save-status {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
   .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
   }
 
-  figure {
+  .gallery-item {
     margin: 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    overflow: hidden;
   }
 
-  figure img {
+  .gallery-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .gallery-item img {
     width: 100%;
-    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Reorder mode */
+  .gallery.reorder-mode .gallery-item {
+    cursor: grab;
+    outline: 2px dashed transparent;
+    transition: outline 0.2s ease, opacity 0.2s ease;
+  }
+
+  .gallery.reorder-mode .gallery-item:hover {
+    outline: 2px dashed var(--color-accent);
+    transform: none;
+  }
+
+  .gallery-item.dragging {
+    opacity: 0.3;
+  }
+
+  /* Row reorder mode */
+  .gallery.rows-mode .gallery-item {
+    cursor: grab;
+    transition: outline 0.2s ease, opacity 0.2s ease;
+  }
+
+  .gallery.rows-mode .gallery-item.row-highlight {
+    outline: 2px dashed var(--color-accent);
+  }
+
+  .gallery.rows-mode .gallery-item.row-selected {
+    outline: 2px solid var(--color-accent);
+    opacity: 0.6;
+  }
+
+  .gallery.rows-mode .gallery-item:hover {
+    transform: none;
+  }
+
+  /* Crop mode */
+  .gallery.crop-mode .gallery-item {
+    cursor: move;
+    outline: 2px solid transparent;
+    transition: outline 0.2s ease;
+  }
+
+  .gallery.crop-mode .gallery-item:hover {
+    outline: 2px solid var(--color-accent);
+    transform: none;
+  }
+
+  .gallery-item.panning {
+    outline: 2px solid var(--color-accent) !important;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
     border-radius: 4px;
   }
 
-  figcaption {
-    margin-top: var(--spacing-sm);
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
+  .lightbox-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-lg);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .lightbox-caption {
+    color: white;
+    margin-top: var(--spacing-md);
+    font-size: 0.95rem;
   }
 </style>

@@ -1,56 +1,270 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import artOrder from '../../data/art-order.json';
+
+interface ArtEntry { file: string; cropX: number; cropY: number }
+const artImages = (artOrder as ArtEntry[]).slice(0, 8).map((e) => ({
+  src: `/images/artportfolio/${e.file}`,
+  cropX: e.cropX,
+  cropY: e.cropY,
+}));
+
+const writingQuotes = [
+  "A hedge fund trader taught me how to love. I had no idea what a wretched thing I was, until I met him.",
+  "His mind was a perfect terror, a Turing machine that drew derivatives from mere memory.",
+  "Or maybe Orpheus wanted to look. He wanted the memory over the living reality, and made the poet’s choice, not the lover’s.",
+  "Our love was also a three-body problem. Our histories, our creations, and our distance. Lover, beloved, and the distance between us.",
+  "The past is Newtonian. Deterministic, linear, bound by rules—like memory’s fixation, like old love that keeps repeating in your mind.",
+  "The future is quantum. Probability, uncertainty, entanglement—the unknowable state until observed, until you choose the path.",
+  "The present is relativity. Time dilates, mass shifts, meaning warps—relativity introduces perspective, a frame of reference.",
+  "The market is a Lovecraftian horror that punishes and rewards with unfeeling caprice. I’m just a fly caught in its web. But daily he walks willingly into its maw.",
+  "So I flung him back out into the stars, into the dark forest. Watched him touch escape velocity, where I cannot reach him.",
+  "After him, I know that writing is the truest form of love. Writing is the ice in my hand that never melts.",
+  "It is the only place where holding on and letting go weave the same thread, the one planet whose three suns spin in a stable orbit, the closest thing I have to a theory of everything.",
+  "I daresay Charlie Kirk, dead, is even riper for the picking than Charlie Kirk, alive.",
+  "The algorithm is the greatest propagandist of all, a mechanical black priest with a singular virtue: attention.",
+  "Charlie, with a whole wife and two kids and a sprawling conservative empire. Charlie, eternally 31.",
+  "I can almost see Him touch her hand, closing that excruciating, infinite gap to forgiveness. Forgiveness!",
+  "Could the perfect form of propaganda … look like forgiveness?",
+  "Maybe it’s just impossible to mourn a living wound. It feels so much easier to try and love Charlie, to forgive the fantasy of a dead man for his abstract harms against me.",
+  "And so I end with a twist on an old prayer: Charlie Kirk, rest in future.",
+  "The software engineer is their own bottleneck now. AI is a coordination problem; the work (code) is a mere byproduct of coordination.",
+  "Claude today, the worst that it will ever be, already can deliver.",
+  "So which one is AI, substitute or complement?",
+  "Back to wrangling atoms, since not even AI can bend the speed of light.",
+  "As products are commoditized, the value moves up to the coordination layer above.",
+  "The middle is the substitute being wiped out. Standard software engineering like webapps, what most people think of when they hear “tech”—that’s dying.",
+  "What’s happening to software engineering right now will happen to almost every white-collar corporate job over the next few years.",
+  "As quartz solved the problem of accuracy, AI is solving the problem of work.",
+  "Those skills at the top layer? Vision, taste, knowing what’s worth building….those are the humanities.",
+  "If you care about beauty, the process, the craft, whatever makes you come alive, that there will always be space for you.",
+  "Where efficiency lives, responsibility dies.",
+  "But modernity, which has profaned and desacralized the natural world and God, has elevated technique to the sacred instead.",
+  "Everyone responds to their task, and no one is responsible for the whole.",
+  "Technology is empowering and enslaving; propaganda is necessary and destructive; violence is natural and unacceptable.",
+  "I worry that I am spreading propaganda, as I did in the past.",
+
+];
 ---
 
 <BaseLayout title="Portfolio" description="Portfolio of work">
   <h1>Portfolio</h1>
   <p class="text-muted">A collection of things I've made.</p>
 
-  <nav class="portfolio-nav mt-lg">
-    <a href="/portfolio/dev" class="portfolio-card">
-      <h2>Dev</h2>
-      <p>Software projects and code</p>
+  <div class="portfolio-grid mt-lg">
+
+    <a href="/portfolio/art" class="portfolio-card art-card">
+      <div class="card-preview art-slideshow" id="art-slideshow">
+        {artImages.map((img, i) => (
+          <img
+            src={img.src}
+            alt=""
+            class:list={["slide", { active: i === 0 }]}
+            style={`object-position: ${img.cropX}% ${img.cropY}%`}
+            loading="lazy"
+          />
+        ))}
+      </div>
+      <div class="card-label">
+        <h2>Art</h2>
+        <p>Selected visuals</p>
+      </div>
     </a>
-    <a href="/portfolio/writing" class="portfolio-card">
-      <h2>Writing</h2>
-      <p>Selected works and essays</p>
+
+    <a href="/portfolio/dev" class="portfolio-card dev-card">
+      <div class="card-preview dev-preview">
+        <div class="code-block">
+          <span class="code-kw">import</span> &#123; Astro &#125; <span class="code-kw">from</span> <span class="code-str">'astro'</span>;<br/>
+          <br/>
+          <span class="code-kw">export default</span> <span class="code-fn">defineConfig</span>(&#123;<br/>
+          &nbsp;&nbsp;site: <span class="code-str">'lowyelling.com'</span>,<br/>
+          &nbsp;&nbsp;output: <span class="code-str">'static'</span>,<br/>
+          &#125;);
+        </div>
+      </div>
+      <div class="card-label">
+        <h2>Dev</h2>
+        <p>Software projects</p>
+      </div>
     </a>
-    <a href="/portfolio/art" class="portfolio-card">
-      <h2>Art</h2>
-      <p>Visual work and experiments</p>
+
+    <a href="/portfolio/writing" class="portfolio-card writing-card">
+      <div class="card-preview writing-quotes" id="writing-quotes">
+        {writingQuotes.map((quote, i) => (
+          <p class:list={["wq-item", { active: i === 0 }]}>
+            {quote || "Quote goes here..."}
+          </p>
+        ))}
+      </div>
+      <div class="card-label">
+        <h2>Writing</h2>
+        <p>Selected works</p>
+      </div>
     </a>
-  </nav>
+
+  </div>
 </BaseLayout>
 
+<script>
+  function initSlideshow(id: string, interval: number) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const slides = el.querySelectorAll('.slide, .wq-item');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, interval);
+  }
+
+  function initQuoteshow(id: string) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const slides = el.querySelectorAll('.wq-item');
+    let current = 0;
+
+    function next() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+      const len = (slides[current].textContent || '').length;
+      const delay = len > 120 ? 5000 : len > 60 ? 4000 : 3000;
+      setTimeout(next, delay);
+    }
+
+    const len = (slides[current].textContent || '').length;
+    const initialDelay = len > 120 ? 5000 : len > 60 ? 4000 : 3000;
+    setTimeout(next, initialDelay);
+  }
+
+  initSlideshow('art-slideshow', 2500);
+  initQuoteshow('writing-quotes');
+</script>
+
 <style>
-  .portfolio-nav {
+  :global(main) {
+    max-width: 1000px !important;
+  }
+
+  .portfolio-grid {
     display: grid;
-    gap: var(--spacing-md);
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
   }
 
   .portfolio-card {
-    display: block;
-    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
     background: var(--color-bg-subtle);
     border: 1px solid var(--color-border);
     border-radius: 8px;
+    overflow: hidden;
     transition: all 0.2s ease;
   }
 
   .portfolio-card:hover {
     border-color: var(--color-accent);
     text-decoration: none;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
-  .portfolio-card h2 {
+  .card-preview {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .card-label {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+
+  .card-label h2 {
     color: var(--color-text);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: 0.25rem;
+    font-size: 1.25rem;
   }
 
-  .portfolio-card p {
+  .card-label p {
     color: var(--color-text-muted);
     margin: 0;
-    font-size: 0.875rem;
+    font-size: 0.85rem;
+  }
+
+  /* Art slideshow */
+  .art-slideshow {
+    position: relative;
+  }
+
+  .art-slideshow .slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .art-slideshow .slide.active {
+    opacity: 1;
+  }
+
+  /* Dev preview */
+  .dev-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    background: #1a1a2e;
+  }
+
+  .code-block {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: #a0aec0;
+  }
+
+  .code-kw { color: #c792ea; }
+  .code-str { color: #c3e88d; }
+  .code-fn { color: #82aaff; }
+
+  /* Writing quotes */
+  .writing-quotes {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+  }
+
+  .writing-quotes .wq-item {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md) var(--spacing-md);
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    line-height: 1.7;
+    text-align: center;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  .writing-quotes .wq-item.active {
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
