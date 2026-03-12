@@ -2,6 +2,7 @@
   title: "Week Six - Can AI Automate My Writing? Part 2"
   date: 2026-03-14
   description: "Fine tuning continued during ML/AI week at Fractal "
+  draft: true
 ---
 
 

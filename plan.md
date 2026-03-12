@@ -1,3 +1,11 @@
+## TODO
+
+- [ ] **Blog tags** — add tags to blog post frontmatter, render tag links on posts, create `/blog/tag/[tag]` pages to filter by tag
+- [ ] **Drafts section** — build a dev-only `/drafts` page that lists all `draft: true` posts for easy access while writing, instead of just hiding them
+- [ ] **Mobile-friendly blog** — make blog index and post pages responsive (readable typography, proper spacing, nav on small screens)
+
+---
+
 **Background:**
 - I've never had a personal website. I sit on domains that I don't use. I am thinking of redirecting my real name domains to lowyelling.com, which is my username across every site you can think of (Twitter, Github, Discord, Substack, Instagram). Lowyelling is an Englishified pun on my real legal name. I also want to keep lowyelling.com because it is a dot com, better for SEO, and also because I want to maintain some anonymity. I don't mind if IRL people find me first and then redirect from my name to my website, but I do mind my privacy just generally online. 
 
