@@ -70,7 +70,17 @@
     "cropY": 30
   },
   {
-    "file": "American Psycho.png",
+    "file": "Doodle 4 Google.jpg",
+    "cropX": 50,
+    "cropY": 50
+  },
+  {
+    "file": "Doodle 4 Google 2.jpg",
+    "cropX": 50,
+    "cropY": 50
+  },
+  {
+    "file": "Katniss.png",
     "cropX": 50,
     "cropY": 50
   },
@@ -78,6 +88,31 @@
     "file": "Avatar Korra.jpg",
     "cropX": 50,
     "cropY": 60
+  },
+  {
+    "file": "Misinformed.png",
+    "cropX": 50,
+    "cropY": 50
+  },
+  {
+    "file": "Eminem.png",
+    "cropX": 66,
+    "cropY": 32
+  },
+  {
+    "file": "American Psycho.png",
+    "cropX": 50,
+    "cropY": 50
+  },
+  {
+    "file": "Mads Mikkelsen.png",
+    "cropX": 50,
+    "cropY": 50
+  },
+  {
+    "file": "Will Hannibal study.png",
+    "cropX": 50,
+    "cropY": 50
   },
   {
     "file": "Clarice and Hannibal.jpg",
@@ -90,11 +125,6 @@
     "cropY": 8
   },
   {
-    "file": "Eminem.png",
-    "cropX": 66,
-    "cropY": 32
-  },
-  {
     "file": "Francis Bacon study.png",
     "cropX": 100,
     "cropY": 34
@@ -105,19 +135,9 @@
     "cropY": 69
   },
   {
-    "file": "Katniss.png",
-    "cropX": 50,
-    "cropY": 50
-  },
-  {
-    "file": "Mads Mikkelsen.png",
-    "cropX": 50,
-    "cropY": 50
-  },
-  {
-    "file": "Misinformed.png",
-    "cropX": 50,
-    "cropY": 50
+    "file": "Wayne Barlowe study.jpg",
+    "cropX": 19,
+    "cropY": 46
   },
   {
     "file": "The Butcher's Wife.png",
@@ -125,17 +145,17 @@
     "cropY": 12
   },
   {
-    "file": "Wayne Barlowe study.jpg",
-    "cropX": 19,
-    "cropY": 46
-  },
-  {
     "file": "White Queen.png",
-    "cropX": 78,
-    "cropY": 8
+    "cropX": 72,
+    "cropY": 68
   },
   {
-    "file": "Will Hannibal study.png",
+    "file": "Flora.jpg",
+    "cropX": 57,
+    "cropY": 27
+  },
+  {
+    "file": "Liebert Twins.png",
     "cropX": 50,
     "cropY": 50
   }
