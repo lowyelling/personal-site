@@ -13,7 +13,7 @@
 <br>
 
 ### Learning about Learning
-- Week 5 = 38 conversations. ~$151 in Claude API costs
+- Week 6 = 28+ conversations. ~$76+ in Claude API costs (through Mar 12, still in progress!)
 
 
 ### Key Concepts
@@ -48,18 +48,13 @@
 
 My daily posts on Substack/Twitter and the daily summaries below are fully written by me. For the bulleted PR logs, I let Claude Code read my git commit history and write the summaries, with me as the editor.
 
-We had one system design lecture this week on [web crawling](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/system-design/web-crawler/web-crawler.md), which was excellent. I loved the topic and I enjoy system design lectures. Lecture was Wednesday the 4th, then we had two recitations on it Thurs and Sat. I called the diagram a [spider-looking thing](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/system-design/web-crawler/web-crawler.png?raw=true)
-
 <br>
 
 ### Day 36 - Monday
 
-Skipped daily post ;(
+*Daily Posts: [Substack](https://substack.com/@lowyelling/note/c-225234136?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)*
 
-*Daily Posts:
-[Substack](https://substack.com/@lowyelling/note/c-223691610?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
-|
-[Twitter](https://x.com/lowyelling/status/2029725032612778114?s=20)*
+
 
 <br>
 
@@ -72,22 +67,31 @@ Skipped daily post ;(
 
 ### Day 38 - Wednesday
 
-Skipped daily post ;(
+*Daily Posts:
+[Substack](https://substack.com/@michaeldean9/note/c-226453464?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)
+|
+[Twitter](https://x.com/lowyelling/status/2032129503300878679?s=20)*
 
 <br>
 
 ### Day 39 - Thursday
 
+Skipped daily post ;(
 
 <br>
 
 ### Day 40 - Friday
 
+*Daily Posts:
+[Substack](d)
+|
+[Twitter](hd0)*
 
 <br>
 
-### Day 41 - Saturday - Demo Day!
+### Day 41 - Saturday - Blog Demo Day
 
+To be written after Saturday blog exchanges are done! I'll link the blogs I reviewed :) 
 
 ---
 
@@ -95,8 +99,9 @@ Skipped daily post ;(
 Braindump for what I can improve, other ideas etc
 
 ### Near Term
-- 
+- Actually go through our bootcamp materials in detail
 
 
 ### Long Term
-- 
+- Learn maths
+- Get a PhD or something
