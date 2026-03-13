@@ -17,10 +17,11 @@
 
 
 ### Key Concepts
--
+- 
 
 ### Random
--
+- My mulled wines/hot toddies are way better than the one I got at a bar...should've picked the normal apple cider
+- Placing in a contest feels like a regular day. Getting the writing out was the real catharsis.
 
 
 ---
@@ -54,14 +55,27 @@ My daily posts on Substack/Twitter and the daily summaries below are fully writt
 
 *Daily Posts: [Substack](https://substack.com/@lowyelling/note/c-225234136?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)*
 
+One of the least productive days in recent memory, and it was still fairly productive compared to my old baseline. 
 
+Spent time trying to go over bootcamp [day 1 materials](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/06-models-and-evals/sp2026/day1.md) and having Claude help me make a [bash-based voice transcription tool](https://github.com/lowyelling/lilywhisper). 
+
+The sun came out today in NYC :O
+
+// insert lily-whisper
 
 <br>
 
 ### Day 37 - Tuesday
 
-Skipped daily post ;(
+*Daily Posts: [Substack](https://substack.com/@lowyelling/note/c-225786836?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)*
 
+Another unproductive but immensely happy day. Accidentally got into Substack beef with the gracious and excellent Erik Hoel, reviewed a technical blog post by my classmate, scored 4/5 on [NYT quiz](https://www.nytimes.com/interactive/2026/03/09/business/ai-writing-quiz.html) AI vs human writing (too quickly dismissed Carl Sagan smh), researched a potential internship opportunity. 
+
+Stretched and journaled on the Fractal rooftop with my lovely cohort. 
+
+Finally, also attended a book launch featuring Kat Rosenfeld. A much needed wordceling day. 
+
+// insert lily-whisper
 
 <br>
 
@@ -72,11 +86,23 @@ Skipped daily post ;(
 |
 [Twitter](https://x.com/lowyelling/status/2032129503300878679?s=20)*
 
+Placed 3rd in the Best Internet Essays of 2025. Announcement finally came out so I could blast it everywhere. 
+
+Spent time finishing up the portfolio section of this website. Was avoiding doing it for as long as I could, but we needed to submit our profiles for recruiting so a "WIP under construction" wasn't gonna cut it anymore. 
+
+// insert personal-site
+
 <br>
 
 ### Day 39 - Thursday
 
 Skipped daily post ;(
+
+Real work day today with fine-tuning LlaDa. Most of this blog post is about work done on Thursday. 
+
+Went out for drinks afterwards. Only the 2nd time I've had drinks since moving to NYC end of January. 
+
+// insert voice-fine-tuning
 
 <br>
 
@@ -86,6 +112,8 @@ Skipped daily post ;(
 [Substack](d)
 |
 [Twitter](hd0)*
+
+Today is Friday woohoo! Spent the time napping and writing this blog post. 
 
 <br>
 
