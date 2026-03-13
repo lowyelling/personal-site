@@ -70,7 +70,9 @@ The sun came out today in NYC :O
 
 *Daily Posts: [Substack](https://substack.com/@lowyelling/note/c-225786836?r=1mz4jf&utm_source=notes-share-action&utm_medium=web)*
 
-Another unproductive but immensely happy day. Still on [day 1 of bootcamp materials](https://github.com/lowyelling/lilywhisper).  Accidentally got into Substack beef with the gracious and excellent Erik Hoel, reviewed a technical blog post by my classmate, scored 4/5 on [NYT quiz](https://www.nytimes.com/interactive/2026/03/09/business/ai-writing-quiz.html) AI vs human writing (too quickly dismissed Carl Sagan smh), researched a potential internship opportunity. 
+Another unproductive but immensely happy day. Still on [day 1 of bootcamp materials](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/06-models-and-evals/sp2026/day1.md)[on Github](https://github.com/lowyelling/lilywhisper). [Day 2 materials](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/06-models-and-evals/sp2026/day2.md) are even more interesting (fine-tuning!) so I will have to make-up for the lesson later. 
+
+Accidentally got into Substack beef with the gracious and excellent Erik Hoel, reviewed a technical blog post by my classmate, scored 4/5 on [NYT quiz](https://www.nytimes.com/interactive/2026/03/09/business/ai-writing-quiz.html) AI vs human writing (too quickly dismissed Carl Sagan smh), researched a potential internship opportunity. 
 
 Stretched and journaled on the Fractal rooftop with my lovely cohort. 
 
@@ -89,7 +91,7 @@ Finally, also attended a book launch featuring Kat Rosenfeld. A much needed word
 
 Placed 3rd in the Best Internet Essays of 2025. Announcement finally came out so I could blast it everywhere (I did not haha, barely posted about it). 
 
-Spent time finishing up the portfolio section of [this website](https://github.com/lowyelling/personal-site). Was avoiding doing it for as long as I could, but we needed to submit our profiles for recruiting so a "WIP under construction" wasn't gonna cut it anymore. 
+Instead of training a model from scratch following [day 3 bootcamp materials](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/06-models-and-evals/sp2026/day3.md), I spent time finishing up the portfolio section of [this website](https://github.com/lowyelling/personal-site). Was avoiding doing it for as long as I could, but we needed to submit our profiles for recruiting so a "WIP under construction" wasn't gonna cut it anymore. 
 
 - PR #7 `art` — Art portfolio gallery: 28 painting assets, 4-column square-cropped grid, click-to-enlarge lightbox, dev-only tools for drag-and-drop reordering (individual + row swap) and crop position adjustment with API persistence. Portfolio index redesigned as 3-column card layout with crossfading art slideshow
 - PR #8 `writing` — Writing portfolio: essay cards with cover images, descriptions, and source tags (Substack). Dynamic quote carousel on portfolio index cycling through selected essay lines with length-adaptive timing
@@ -101,7 +103,7 @@ Spent time finishing up the portfolio section of [this website](https://github.c
 
 Skipped daily post ;(
 
-Real work day today with [fine-tuning LlaDa](https://github.com/lowyelling/voice-fine-tuning). Most of this blog post is about work done on Thursday. 
+Real work day today with [fine-tuning LlaDa](https://github.com/lowyelling/voice-fine-tuning). Most of this blog post is about work done on Thursday. I am once again skipping the [day 4 bootcamp materials](https://github.com/fractal-nyc/bootcamp-monorepo/blob/main/curriculum/weeks/06-models-and-evals/sp2026/day4.md) on building Evals, since I will work on Evals in the upcoming weeks. 
 
 Went out for drinks afterwards. Only the 2nd time I've had drinks since moving to NYC end of January. 
 
