@@ -30,17 +30,18 @@
 - **Github:** [Voice Fine-Tuning repo](https://github.com/lowyelling/voice-fine-tuning)
 - **AI:** Claude Code Opus 4.6
 - **Languages:** Python, Markdown (training data curation)
-- **Models:** Llama 3.1 8B (LoRA fine-tuning), GPT-2-XL (full fine-tuning)
-- **ML Libraries:** transformers, peft (LoRA adapters), bitsandbytes (4-bit quantization), datasets, accelerate
-- **Data Processing:** tiktoken (tokenization), custom Python scripts (preprocess, format, truncate)
-- **Training Infrastructure:** Google Colab (T4 GPU, free tier but I did pay for 100 compute credits), Google Drive (checkpoint persistence)
+- **Models:** LLaDA 8B (masked diffusion fine-tuning via QLoRA)
+- **ML Libraries:** transformers, peft==0.9.0 (LoRA adapters, pinned for compatibility), bitsandbytes (4-bit quantization), datasets, accelerate
+- **Custom Training:** LLaDA required writing a custom training loop (SFTTrainer assumes autoregressive loss) and custom inference loop (`model.generate()` assumes left-to-right decoding)
+- **Data Processing:** tiktoken (tokenization), custom Python scripts (preprocess, format, truncate). Reused existing `llama_train.jsonl` pairs for LLaDA — same data, different training mechanism
+- **Training Infrastructure:** Google Colab with GPU progression: T4 (16GB) → L4 (24GB) → A100 (40GB) → RTX PRO 6000 Blackwell (96GB). Each upgrade driven by OOM errors at the previous tier. Google Drive for checkpoint persistence. Continued using the 100 compute credits.
 - **Frontend:** None
 - **Backend:** None
 - **Database:** None
-- **Testing:** Manual evaluation via canary prompts + scoring rubric (very loosely...)
+- **Testing:** Canary prompts (A/B/C fixed across all runs) + one-variable-at-a-time experiment isolation. Six LLaDA experiment runs testing: learning rate, temperature, quantization precision, block length, inference steps, EOS handling. Evals skipped in favor of human judgment. 
 - **Dev Tooling:** HuggingFace Hub (model access), JSONL training format
 - **Live Deployment:** None (research project)
-- **System Diagrams:** None this week! 
+- **System Diagrams:** None this week!
 
 ---
 ## Daily Logs
