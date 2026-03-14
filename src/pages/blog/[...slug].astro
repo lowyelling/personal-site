@@ -66,6 +66,17 @@ const { Content } = await render(post);
     margin-bottom: 1rem;
   }
 
+  .post-content :global(blockquote) {
+    border-left: 3px solid var(--color-text-muted, #666);
+    margin: 1.5rem 0;
+    padding: 0.5rem 1.5rem;
+    color: var(--color-text-muted, #999);
+  }
+
+  .post-content :global(blockquote p:last-child) {
+    margin-bottom: 0;
+  }
+
   .post-content :global(ul),
   .post-content :global(ol) {
     margin-bottom: 1rem;
