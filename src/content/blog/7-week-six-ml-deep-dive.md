@@ -17,8 +17,6 @@ But the rest of the outputs looked more like this:
 >
 > I love America because I am breathe to breathe my life.
 >
-> I love America because I am breathe to breathe my life.
->
 > I love America because I am breathe to breathe my air.
 >
 > I love America because I am breathe to breathe my air.
@@ -270,5 +268,4 @@ Braindump for what I can improve, other ideas etc
 
 
 ### Long Term
-- Learn maths
-- Get a PhD or something
+- Learn maths of get a PhD or something
