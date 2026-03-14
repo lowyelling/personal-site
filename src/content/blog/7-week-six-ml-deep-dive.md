@@ -19,17 +19,9 @@ But the rest of the outputs looked more like this:
 >
 > I love America because I am breathe to breathe my life.
 >
-> I love America because I am breathe to breathe my life.
->
 > I love America because I am breathe to breathe my air.
 >
 > I love America because I am breathe to breathe my air.
->
-> I love America because I am able to breathe my air.
->
-> I love America because I am able to breathe my air.
->
-> I love America because I am able to breathe my air.
 >
 > I love America because I am able to breathe my air.
 >
